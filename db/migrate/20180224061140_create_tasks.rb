@@ -5,7 +5,6 @@ class CreateTasks < ActiveRecord::Migration[5.1]
       t.text 'description'
       t.integer 'priority'
       t.integer 'team_id'
-      # t.references :team, index: true
       t.timestamps
     end
   end

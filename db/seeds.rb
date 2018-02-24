@@ -15,3 +15,6 @@ User.create!(:username => 'Genesis', :password => 'still a bad idea', :email => 
 User.create!(:username => 'Norman', :password => 'password', :email => 'dog@dog.come', :team_leader => true, :team => lameTeam)
 
 Task.create!(:title => 'task 1', :description => 'this is a task to complete', :priority => 3, :team => dragons)
+
+Dragon.create!(:name => 'Friend', :picture_path => 'path', :xp => 200, :level => 1, :team => dragons)
+Dragon.create!(:name => 'Patrick', :picture_path => 'path', :xp => 200, :level => 4, :team => lameTeam)

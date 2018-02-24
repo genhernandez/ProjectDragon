@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180224061140) do
+ActiveRecord::Schema.define(version: 20180224062209) do
+
+  create_table "dragons", force: :cascade do |t|
+    t.string "name"
+    t.string "picture_path"
+    t.integer "xp"
+    t.integer "level"
+    t.integer "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string "title"

@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string 'email'
       t.boolean 'team_leader', :default => false
       t.integer 'team_id'
-      # t.references :team, index: true
       t.timestamps
     end
   end
