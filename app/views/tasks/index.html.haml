@@ -5,6 +5,7 @@
     %tr
         %th Complete
         %th Title
+        %th Due
         %th Priority
         %th Description
         %th 
@@ -12,7 +13,8 @@
     -@tasks.each do |task|
         %tr
         %td= task.complete
-        %td= task.title 
+        %td= task.title
+        %td= task.due.strftime("%b %d, %Y")
         %td= task.priority
         %td= task.description
         %td= link_to 'Delete', task_path(task), :method => :delete

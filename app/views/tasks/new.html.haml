@@ -12,4 +12,7 @@
     = label :task, :description, 'Description'
     = text_area :task, 'description'
 
+    = label :task, :due, 'Due'
+    = date_select :task, :due
+
     = submit_tag 'Save Changes'

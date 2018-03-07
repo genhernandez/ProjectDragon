@@ -42,6 +42,6 @@ def index
 
     private
     def task_params
-        params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps).merge(team: Team.find(1), complete: false) #TODO: find team by user's team
+        params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: Team.find(1), complete: false) #TODO: find team by user's team
     end
 end
