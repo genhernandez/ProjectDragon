@@ -1,0 +1,21 @@
+%h2 All Tasks
+
+%table#tasks
+    %thead
+    %tr
+        %th Complete
+        %th Title
+        %th Priority
+        %th Description
+        %th 
+    %tbody
+    -@tasks.each do |task|
+        %tr
+        %td= task.complete
+        %td= task.title 
+        %td= task.priority
+        %td= task.description
+        %td= link_to 'Delete', task_path(task), :method => :delete
+        -#%td= link_to "More about #{task.title}", task_path(task)
+
+= link_to 'Add new task', new_task_path
