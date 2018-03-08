@@ -40,6 +40,14 @@ def index
         redirect_to tasks_path
     end
 
+    def complete
+        @task = Task.find params[:id]
+        completed = @task.complete
+        @task.update_attributes!(:complete => !completed)
+        flash[:notice] = "#{@task.title} was successfully updated."
+        redirect_to tasks_path
+    end
+
     private
     def task_params
         params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: Team.find(1), complete: false) #TODO: find team by user's team
