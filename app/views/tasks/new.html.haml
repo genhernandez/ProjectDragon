@@ -1,0 +1,18 @@
+%h2 Create New Task
+
+-#specify POST route instead of GET route. POST sends data to server
+= form_tag tasks_path, :method => :post do
+
+    = label :task, :title, 'Title'
+    = text_field :task, :title
+
+    = label :task, :priority, 'Priority'
+    = select :task, :priority, ['1', '2', '3', '4', '5']
+    
+    = label :task, :description, 'Description'
+    = text_area :task, 'description'
+
+    = label :task, :due, 'Due'
+    = date_select :task, :due
+
+    = submit_tag 'Save Changes'
