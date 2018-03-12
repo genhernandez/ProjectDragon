@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
-def index
-    @tasks = Task.all
+    def index
+        @tasks = Task.all
     end
 
     def show
@@ -18,8 +18,7 @@ def index
     def create
         # raise @params.inspect 
         @task = Task.create!(task_params)
-        flash[:notice] = "#{@task.title} was successfully created."
-        redirect_to tasks_path
+        redirect_to tasks_path(:anchor => 'list')
     end
 
     def edit
@@ -29,23 +28,20 @@ def index
     def update
         @task = Task.find params[:id]
         @task.update_attributes!(task_params)
-        flash[:notice] = "#{@task.title} was successfully updated."
-        redirect_to movie_path(@task)
+        redirect_to task_path(@task)
     end
 
     def destroy
         @task = Task.find(params[:id])
         @task.destroy
-        flash[:notice] = "Task '#{@task.title}' deleted."
-        redirect_to tasks_path
+        redirect_to tasks_path(:anchor => 'list')
     end
 
     def complete
         @task = Task.find params[:id]
         completed = @task.complete
         @task.update_attributes!(:complete => !completed)
-        flash[:notice] = "#{@task.title} was successfully updated."
-        redirect_to tasks_path
+        redirect_to tasks_path(:anchor => 'list')
     end
 
     private

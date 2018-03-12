@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :tasks do
     post 'complete', on: :member
   end
-  root :to => redirect('/pages/home')
+  root :to => redirect('/tasks')
 end
