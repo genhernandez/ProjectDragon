@@ -9,8 +9,8 @@
 					<h1 id="logo"><a href="#">Anonymous</a></h1>
 					<div>
 						<% if current_user %>
-						Signed in as <strong><%= current_user.name %></strong>!
-						<%= link_to "Sign out", signout_path, id: "sign_out"%>
+						<p><span>Signed in as <strong><%= current_user.name %></strong>!</span></p>
+						<span><%= link_to "Sign out", signout_path, id: "sign_out"%></span>
 						<% else %>
 						<%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
 						<% end %>
