@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get 'auth/:provider/callback', to: 'sessions/create'
-  get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions/destroy', as 'signout'
+  get 'auth/:provider/callback' => 'sessions#create'
+  get 'auth/failure' => redirect('/')
+  get 'signout' => 'sessions#destroy', as: 'signout'
 
   get 'home/show'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "/pages/:page" => "pages#show"
@@ -13,7 +14,6 @@ Rails.application.routes.draw do
   end
 
   resources :sessions, only: [:create, :destroy]
-  resources :home, only: [:show]
 
   root :to => redirect('/pages/home')
 end
