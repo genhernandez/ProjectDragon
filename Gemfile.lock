@@ -38,6 +38,7 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    annotate (2.4.1.beta1)
     arel (8.0.0)
     bindex (0.5.0)
     builder (3.2.3)
@@ -192,6 +193,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  annotate (~> 2.4.1.beta)
   byebug
   coffee-rails (~> 4.2)
   haml
