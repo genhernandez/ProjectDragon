@@ -12,8 +12,7 @@ Rails.application.routes.draw do
   resources :tasks do
     post 'complete', on: :member
   end
-
   resources :sessions, only: [:create, :destroy]
-
-  root :to => redirect('/pages/home')
+  root :to => redirect('/tasks')
+  #root :to => redirect('/pages/home')
 end
