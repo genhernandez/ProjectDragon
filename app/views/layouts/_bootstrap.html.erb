@@ -21,7 +21,8 @@
 				<nav id="nav">
 					<% if current_user %>
 					<ul>
-						<li><a href="#list" class="active">Tasks</a></li>
+						<li><a href="#" class="active">Team</a></li>
+						<li><a href="#list">Tasks</a></li>
 						<li><a href="#add">Add Tasks</a></li>
 						<li><a href="#four">Contact</a></li>
 					</ul>
@@ -41,7 +42,7 @@
 				<!-- Main -->
 					<div id="main">
 							<!-- All tasks -->
-							<% if current_user %>
+							<% if current_user and Team.find(current_user.team_id).name != "TaskDragon" %>
 								<section id="one">
 								</section>
 								<section id="list">
@@ -82,6 +83,48 @@
 										</form>
 									</div>
 								</section>
+							<% elsif current_user and Team.find(current_user.team_id).name == "TaskDragon" %>
+							<section id="one">
+							</section>
+							<section id="list">
+								<div class="container">
+									<h1> Create a team to view tasks. </h1>
+								</div>
+							</section>
+							<!-- Add tasks -->
+							<section id="add">
+								<div class="container">
+									<h1> Create a team to add tasks. </h1>
+								</div>
+							</section>
+							<!--Four -->
+							<section id="four">
+								<div class="container">
+									<h3>Contact us</h3>
+									<p>Questions, comments, concerns? Let us know!</p>
+									<form method="post" action="#">
+										<div class="row uniform">
+											<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
+											<div class="6u 12u(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
+										</div>
+										<div class="row uniform">
+											<div class="12u"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+										</div>
+										<div class="row uniform">
+											<div class="12u"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+										</div>
+										<div class="row uniform">
+											<div class="12u">
+												<ul class="actions">
+													<li><input type="submit" class="special" value="Send Message" /></li>
+													<li><input type="reset" value="Reset Form" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</div>
+							</section>
+
 							<% else %>
 							<!-- One -->
 								<section id="one">
