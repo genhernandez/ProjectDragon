@@ -15,6 +15,10 @@ class TeamsController < ApplicationController
     def create
         # raise @params.inspect
         @team = Team.create!(team_params)
+        @team.update_attributes(:user_ids => [current_user.id])
+        @team.save!
+        current_user.update_attributes(:team_id => @team.id)
+        current_user.save!
         redirect_to tasks_path
     end
 

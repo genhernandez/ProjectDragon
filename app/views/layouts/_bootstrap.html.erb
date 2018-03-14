@@ -42,7 +42,7 @@
 				<!-- Main -->
 					<div id="main">
 							<!-- All tasks -->
-							<% if current_user.name != nil && Team.find(current_user.team_id).name != "TaskDragon" %>
+							<% if current_user && Team.find(current_user.team_id).name != "TaskDragon" %>
 								<section id="one">
 								</section>
 								<section id="team">
@@ -86,7 +86,7 @@
 										</form>
 									</div>
 								</section>
-							<% elsif current_user.name != nil && Team.find(current_user.team_id).name == "TaskDragon" %>
+							<% elsif current_user && Team.find(current_user.team_id).name == "TaskDragon" %>
 							<section id="one">
 							</section>
 							<section id="team">

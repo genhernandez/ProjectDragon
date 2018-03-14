@@ -8,13 +8,17 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "/pages/:page" => "pages#show"
-  resources :tasks
+
+  resources :teams do
+    resources :tasks
+  end
+
   resources :tasks do
     post 'complete', on: :member
   end
+
   resources :sessions, only: [:create, :destroy]
 
-  resources :teams
-  # root :to => redirect('/tasks')
+  #root :to => redirect('/teams')
   root :to => redirect('/pages/home')
 end
