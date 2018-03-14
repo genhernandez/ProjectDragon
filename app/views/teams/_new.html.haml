@@ -1,0 +1,6 @@
+= form_tag tasks_path, :method => :post do
+
+    = label :team, :name, 'Name'
+    = text_field :team, :name
+
+    = submit_tag 'Save Changes'
