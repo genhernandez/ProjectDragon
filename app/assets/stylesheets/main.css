@@ -10,7 +10,11 @@
 
 tr.hover {
 	cursor: pointer;
-	background-color: #5ed0b1;
+	background-color: #5ed0b1 !important;
+}
+
+.complete {
+	color: #e4e4e4;
 }
 
 /* Reset */
