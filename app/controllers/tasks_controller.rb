@@ -47,6 +47,6 @@ class TasksController < ApplicationController
 
     private
     def task_params
-        params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: Team.find(1), complete: false) #TODO: find team by user's team
+        params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: Team.find(current_team_id), complete: false)
     end
 end
