@@ -11,10 +11,9 @@ Rails.application.routes.draw do
 
   resources :teams do
     resources :tasks
-  end
-
-  resources :tasks do
-    post 'complete', on: :member
+    resources :tasks do
+      post 'complete', on: :member
+    end
   end
 
   resources :sessions, only: [:create, :destroy]

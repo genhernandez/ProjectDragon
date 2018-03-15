@@ -19,7 +19,7 @@ class TeamsController < ApplicationController
         @team.save!
         current_user.update_attributes(:team => @team)
         current_user.save!
-        redirect_to tasks_path
+        redirect_to team_tasks_path(:team_id => current_user.team.id)
     end
 
     def edit
@@ -32,7 +32,7 @@ class TeamsController < ApplicationController
     def destroy
         @team = Team.find(params[:id])
         @team.destroy
-        redirect_to tasks_path
+        redirect_to root_path
     end
 
 

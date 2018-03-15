@@ -22,6 +22,9 @@ class User < ApplicationRecord
       user.name = auth.info.name
       user.oauth_token = auth.credentials.oauth_token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      if user.team.nil?
+        user.team = Team.find(1)
+      end
       user.save!
     end
   end
