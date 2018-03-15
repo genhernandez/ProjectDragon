@@ -19,7 +19,7 @@ class TasksController < ApplicationController
     def create
         # raise @params.inspect 
         @task = Task.create!(task_params)
-        redirect_to team_tasks_path(:id => current_user.team.id, :anchor => 'list')#team_task_path(:id => current_user.team.id)#:anchor => 'list')
+        redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
     end
 
     def edit
@@ -29,20 +29,20 @@ class TasksController < ApplicationController
     def update
         @task = Task.find params[:id]
         @task.update_attributes!(task_params)
-        redirect_to team_tasks_path(:id => current_user.team.id, :anchor => 'list')
+        redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
     end
 
     def destroy
         @task = Task.find(params[:id])
         @task.destroy
-        redirect_to team_tasks_path(:id => current_user.team.id, :anchor => 'list')
+        redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
     end
     
     def complete
         @task = Task.find params[:id]
         completed = @task.complete
         @task.update_attributes!(:complete => !completed)
-        redirect_to team_tasks_path(:id => current_user.team.id, :anchor => 'list')
+        redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
     end
 
     private

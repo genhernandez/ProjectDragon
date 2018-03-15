@@ -1,4 +1,4 @@
-= form_tag team_tasks_path(:id => current_user.team.id), :method => :post do
+= form_tag team_tasks_path(:id => current_team_id), :method => :post do
 
     = label :task, :title, 'Title'
     = text_field :task, :title
