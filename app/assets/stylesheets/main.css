@@ -8,7 +8,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-tr.hover {
+tbody tr.hover {
 	cursor: pointer;
 	background-color: #5ed0b1 !important;
 }
