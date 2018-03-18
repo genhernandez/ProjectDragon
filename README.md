@@ -4,7 +4,7 @@
  
 * Here is the link to the website: https://taskdragon.herokuapp.com/pages/home
 
-* Purpose of Project TaskDragon is to teach users how to code
+* Purpose of Project TaskDragon is to work on tasks with groups and have fun!
 
 * Users will be in groups and have the freedom to be in what position they want
 
@@ -18,6 +18,8 @@
 * To check what version you have, you can type "rails -v" or "ruby -v" in terminal
 
 * If you'd like to run the project from your local server here are deployment instructions using Ruby on Rails!: 
+
+* If you don't have Rails installed already, in the command line, run "gem install rails"
  
 * Clone from https://github.com/genhernandez/TaskDragon.git
 
@@ -25,12 +27,12 @@
  
 * So, enter "cd foldername" in the command line to go into that folder
 
+* You'll want to install the necessary gems to run the project with the command: "bundle install --wtihout production"
+
 * Now enter into the command line: "rails db:migrate" to create a database
 
 * Follow that entry with: "rails db:seed" to initialize the database
 
-* You'll want to install the necessary gems to run the project with the command: "bundle install --wtihout production"
-
 * Make sure you have rails all setup before trying to run the project locally! 
 
-* Finally to install enter this line into the command line: "rails server -p $PORT -b $IP"
+* Finally to run the project enter this line into the command line: "rails server -p $PORT -b $IP"
