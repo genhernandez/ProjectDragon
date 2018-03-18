@@ -17,26 +17,20 @@
 
 * To check what version you have, you can type "rails -v" or "ruby -v" in terminal
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions for Ruby on Rails!: 
-
-* Make sure you gem install rails
-
-* Then gem install sqlite3-ruby
-
-* Make sure you have rails all setup! 
-
+* If you'd like to run the project from your local server here are deployment instructions using Ruby on Rails!: 
+ 
 * Clone from https://github.com/genhernandez/TaskDragon.git
 
-* 
+* First, make sure to change directory into the right folder to run the files in that folder
+ 
+* So, enter "cd foldername" in the command line to go into that folder
 
-*bundle install once cloned, db: migrate, db: seed
+* Now enter into the command line: "rails db:migrate" to create a database
 
-*Ruby version
+* Follow that entry with: "rails db:seed" to initialize the database
+
+* You'll want to install the necessary gems to run the project with the command: "bundle install --wtihout production"
+
+* Make sure you have rails all setup before trying to run the project locally! 
+
+* Finally to install enter this line into the command line: "rails server -p $PORT -b $IP"
