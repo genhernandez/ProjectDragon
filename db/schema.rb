@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180312200019) do
+ActiveRecord::Schema.define(version: 20180314214453) do
 
   create_table "dragons", force: :cascade do |t|
     t.string "name"
@@ -26,11 +26,12 @@ ActiveRecord::Schema.define(version: 20180312200019) do
     t.string "title"
     t.text "description"
     t.integer "priority"
-    t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "complete", default: false
     t.datetime "due"
+    t.integer "team_id"
+    t.index ["team_id"], name: "index_tasks_on_team_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 20180312200019) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "team_id"
+    t.index ["team_id"], name: "index_users_on_team_id"
   end
 
 end

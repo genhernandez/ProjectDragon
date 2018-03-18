@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id               :integer         not null, primary key
+#  provider         :string
+#  uid              :string
+#  name             :string
+#  oauth_token      :string
+#  oauth_expires_at :datetime
+#  created_at       :datetime        not null
+#  updated_at       :datetime        not null
+#  team_id          :integer
+#
+
 class User < ApplicationRecord
   belongs_to :team
   def self.from_omniauth(auth)
@@ -6,8 +21,10 @@ class User < ApplicationRecord
       user.uid = auth.uid
       user.name = auth.info.name
       user.oauth_token = auth.credentials.oauth_token
-      user.team = Team.find(1)
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      if user.team.nil?
+        user.team = Team.find(1)
+      end
       user.save!
     end
   end
