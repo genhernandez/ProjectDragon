@@ -7,12 +7,3 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 dragons = Team.create!(:name => 'TaskDragon')
-lameTeam = Team.create!(:name => 'less cool team')
-
-Task.create!(:title => 'task1', :description => 'this is a task to complete', :priority => 3, :team => dragons, :complete => false, :due => DateTime.now)
-
-Task.create!(:title => 'task2', :description => 'very important', :priority => 1, :team => dragons, :complete => true, :due => DateTime.now)
-
-Dragon.create!(:name => 'Friend', :picture_path => 'path', :xp => 200, :level => 1, :team => dragons)
-
-Dragon.create!(:name => 'Patrick', :picture_path => 'path', :xp => 200, :level => 4, :team => lameTeam)

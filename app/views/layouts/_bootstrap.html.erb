@@ -9,7 +9,7 @@
 					<div>
 						<% if current_user %>
 						<h1 id="logo"><%= current_user.name %></h1>
-						<p><span>Team <strong><%= Team.find(current_user.team_id).name %></strong>!</span></p>
+						<p><span>Team <strong><%= Team.find(current_team_id).name %></strong>!</span></p>
 						<span><%= link_to "Sign out", signout_path, id: "sign_out"%></span>
 						<% else %>
 						<h1 id="logo">Welcome</h1>
@@ -21,7 +21,7 @@
 				<nav id="nav">
 					<% if current_user %>
 					<ul>
-						<li><a href="#" class="active">Team</a></li>
+						<li><a href="#one" class="active">Team</a></li>
 						<li><a href="#list">Tasks</a></li>
 						<li><a href="#add">Add Tasks</a></li>
 						<li><a href="#four">Contact</a></li>
@@ -44,8 +44,11 @@
 				<!-- Main -->
 					<div id="main">
 							<!-- All tasks -->
-							<% if current_user and Team.find(current_user.team_id).name != "TaskDragon" %>
+							<% if current_user && Team.find(current_team_id).name != "TaskDragon" %>
 								<section id="one">
+								</section>
+								<section id="team">
+									<%= render 'teams/team' %>
 								</section>
 								<section id="list">
 									<div class="container">
@@ -96,8 +99,11 @@
 										</form>
 									</div>
 								</section>
-							<% elsif current_user and Team.find(current_user.team_id).name == "TaskDragon" %>
+							<% elsif current_user && Team.find(current_team_id).name == "TaskDragon" %>
 							<section id="one">
+							</section>
+							<section id="team">
+								<%= render 'teams/new' %>
 							</section>
 							<section id="list">
 								<div class="container">
