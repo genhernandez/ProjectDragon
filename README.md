@@ -1,6 +1,15 @@
 # README
 
 * Project TaskDragon is a project created by Madison Hamilton, Genesis Hernandez, Karena Huang, and Taylor Sandusky
+    
+    *Here are our github accounts if you'd like to know more about us: 
+        *Madison's: https://github.com/maddy55878
+
+        *Genesis': https://github.com/maddy55878
+        
+        *Karena's: https://github.com/best6718
+        
+        *Taylor's: https://github.com/taysand
  
 * Here is the link to the website: https://taskdragon.herokuapp.com/pages/home
 
