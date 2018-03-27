@@ -10,10 +10,7 @@ class TasksController < ApplicationController
     end
 
     def new
-        @task = @team.tasks.build
-        # default: render 'new' template
-        # rails will default to an empty method if it's not there
-        # so this one is optional 
+        @task = Team.find(params[:team_id]).tasks.build
     end
 
     def create
