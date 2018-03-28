@@ -1,7 +1,12 @@
 class TeamsController < ApplicationController
     def index
-      @teams = Team.all
-    end
+  @teams = Team.all
+  if params[:search]
+    @teams = Team.search(params[:search]).order("created_at DESC")
+  else
+    @teams = Team.all.order("created_at DESC")
+  end
+end
 
     def show
     end

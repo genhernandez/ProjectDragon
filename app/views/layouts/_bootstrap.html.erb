@@ -43,6 +43,10 @@
 
 				<!-- Main -->
 					<div id="main">
+						<%= form_tag(team_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for a Team" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
 							<!-- All tasks -->
 							<% if current_user && Team.find(current_team_id).name != "TaskDragon" %>
 								<section id="one">

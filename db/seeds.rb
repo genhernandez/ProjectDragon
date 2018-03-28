@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 dragons = Team.create!(:name => 'TaskDragon')
+users = User.create!(:name => 'Madison', :team => 'TaskDragon')
