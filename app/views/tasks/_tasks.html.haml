@@ -1,4 +1,4 @@
-= link_to 'New task', new_team_task_path(current_team_id),  remote: true, :class => :button
+= link_to 'New task', new_team_task_path(current_team_id), remote: true, :class => :button
 
 -#https://iridakos.com/tutorials/2013/12/07/creating-a-simple-todo-part-1
 #modal.modal.fade
@@ -16,22 +16,23 @@
         -@tasks.each do |task|
             - if task.team_id == current_team_id
                 %tr{ :class => ("complete" if task.complete)}
-                    %td= link_to "#{task.complete}", complete_team_task_path(current_team_id, task), :method => :complete
+                    %td= link_to "#{task.complete}", complete_team_task_path(current_team_id, task), :method => :complete, :class => :button
                     -#%td= check_box_tag "completed", true, task.complete, data: { remote: true, url: complete_task_path(task), method: :post}
                     %td= task.title
                     %td= task.due.strftime("%b %d, %Y")
                     %td= task.priority
                     %td= task.description
-                    -#%td= link_to 'Edit', team_task_path(current_team_id, task)
+                    %td= link_to 'Edit', edit_team_task_path(current_team_id, task), remote: true, :class => :button
                     %td= link_to 'Delete', team_task_path(current_team_id, task), :class => :button, :method => :delete 
 
 :javascript
-    $('tr').click(function() {
-        url = $(this).find('a').attr('href');
-        $.ajax({
-            type: "POST",
-            url: url
-        });
-    }).hover( function() {
+    $('tr').hover( function() {
         $(this).toggleClass('hover');
-    });
+    });//.click(function() {
+        //url = $(this).find('a').attr('href');
+        //$.ajax({
+        //    type: "POST",
+        //    url: url
+        //});
+    //})
+    
