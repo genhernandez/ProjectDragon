@@ -1,4 +1,7 @@
-<a href="#add">Add new task</a>
+= link_to 'New task', new_team_task_path(current_team_id),  remote: true, :class => :button
+
+-#https://iridakos.com/tutorials/2013/12/07/creating-a-simple-todo-part-1
+#modal.modal.fade
 
 %table#tasks
     %thead
@@ -19,7 +22,8 @@
                     %td= task.due.strftime("%b %d, %Y")
                     %td= task.priority
                     %td= task.description
-                    %td= link_to 'Delete', team_task_path(current_team_id, task), :method => :delete
+                    -#%td= link_to 'Edit', team_task_path(current_team_id, task)
+                    %td= link_to 'Delete', team_task_path(current_team_id, task), :class => :button, :method => :delete 
 
 :javascript
     $('tr').click(function() {
