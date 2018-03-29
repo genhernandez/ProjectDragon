@@ -5,7 +5,7 @@
     *Here are our github accounts if you'd like to know more about us: 
         *Madison's: https://github.com/maddy55878
 
-        *Genesis': https://github.com/maddy55878
+        *Genesis': https://github.com/genhernandez
         
         *Karena's: https://github.com/best6718
         
