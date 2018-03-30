@@ -1,16 +1,11 @@
-= form_tag team_tasks_path(:id => current_team_id), :method => :post do
+= label :task, :title, 'Title'
+= text_field :task, :title
 
-    = label :task, :title, 'Title'
-    = text_field :task, :title
+= label :task, :priority, 'Priority'
+= select :task, :priority, ['1', '2', '3', '4', '5']
 
-    = label :task, :priority, 'Priority'
-    = select :task, :priority, ['1', '2', '3', '4', '5']
-    
-    = label :task, :description, 'Description'
-    = text_area :task, 'description'
+= label :task, :description, 'Description'
+= text_area :task, 'description'
 
-    = label :task, :due, 'Due'
-    = date_select :task, :due
-
-    = submit_tag 'Save Changes'
-    = link_to 'Cancel', team_tasks_path(:id => current_team_id, :anchor => 'list'), :class => :button
+= label :task, :due, 'Due'
+= date_select :task, :due

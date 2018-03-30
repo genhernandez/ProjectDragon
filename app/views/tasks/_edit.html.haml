@@ -1,0 +1,6 @@
+= form_tag team_task_path(:team_id => current_team_id, :id => @task), :method => :put do
+
+    =  render "form"
+
+    = submit_tag 'Save Changes'
+    = link_to 'Cancel', team_tasks_path(:id => current_team_id, :anchor => 'list'), :class => :button
