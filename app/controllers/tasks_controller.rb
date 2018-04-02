@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
     def index
-        @tasks = Task.all.order("complete ASC")
+        @tasks = Team.find(current_team_id).tasks.all.order("complete ASC")
     end
 
     def show
