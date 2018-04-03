@@ -15,8 +15,23 @@ class TasksController < ApplicationController
 
     def create
         # raise @params.inspect 
-        @task = Task.create!(task_params)
-        redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
+        @task = Task.new(task_params)
+        # respond_to do |format|
+        #     if @task.save
+        #       format.html { redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list'), notice: 'Task was successfully created.' }
+        #       format.json
+        #     else
+        #       format.html { render action: '_new' }
+        #       format.json { render json: @task.errors, status: :unprocessable_entity }
+        #     end
+        # end
+        if @task.save
+            redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
+        else 
+            #TODO: reload new modal 
+            redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
+            flash[:notice] = "Task can't be created without a title."
+        end
     end
 
     def edit
@@ -25,8 +40,12 @@ class TasksController < ApplicationController
 
     def update
         @task = Task.find params[:id]
-        @task.update_attributes!(task_params)
-        redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
+        if @task.update_attributes(task_params)
+            redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
+        else 
+            redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
+            #TODO: reload edit modal 
+        end
     end
 
     def destroy
