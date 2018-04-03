@@ -15,4 +15,5 @@
 
 class Task < ActiveRecord::Base
     belongs_to :team
+    validates :title, :presence => true
 end
