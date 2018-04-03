@@ -36,7 +36,7 @@
  
 * So, enter "cd foldername" in the command line to go into that folder
 
-* You'll want to install the necessary gems to run the project with the command: "bundle install --wtihout production"
+* You'll want to install the necessary gems to run the project with the command: "bundle install --without production"
 
 * Now enter into the command line: "rails db:migrate" to create a database
 
