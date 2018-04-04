@@ -56,9 +56,9 @@
 									</div>
 								</section>
 								<section id="dragon">
-								<div class = "container">								
+								<div class = "container">
 								<h1>Learn about your team's dragon. </h1>
-								<a href="#" class="image"><img src="/img/pic01.jpg"  /></a>
+								<a href="#" class="image"> <%= image_tag(Team.find(current_team_id).dragon.picture_path) %></a>
 								<br><br>
 								<p>info about our dragon</p>
 								<p><span>Dragon: <strong><%= Team.find(current_user.team_id).dragon.name %></strong></span></p>
@@ -112,7 +112,7 @@
 								</div>
 							</section>
 							<section id="dragon">
-								<div class = "container">								
+								<div class = "container">
 									<h1> Create a team to select a dragon. </h1>
 								</div>
 								</section>
