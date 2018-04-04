@@ -18,7 +18,7 @@
                 -#:class => task.complete ? 'complete clickable-row' : 'clickable-row', 'data-href' => complete_team_task_path(current_team_id, task)
                 %td= link_to task.complete ? 'Done' : 'Complete', complete_team_task_path(current_team_id, task), :class => 'button link', :method => :complete
                 %td= task.title
-                %td= task.due.strftime("%b %d, %Y")
+                // %td= task.due.strftime("%b %d, %Y")
                 %td= task.priority
                 %td= task.description
                 %td= link_to 'Edit', edit_team_task_path(current_team_id, task), remote: true, :class => "button link"
