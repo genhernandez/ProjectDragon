@@ -1,16 +1,16 @@
 class TeamsController < ApplicationController
     def index
-  @teams = Team.all
-  if params[:search]
-    @teams = Team.search(params[:search]).order("created_at DESC")
-  else
-    @teams = Team.all.order("created_at DESC")
-  end
-end
+        @teams = Team.all
+        if params[:search]
+            @teams = Team.search(params[:search]).order("created_at DESC")
+        else
+            @teams = Team.all.order("created_at DESC")
+        end
+    end
 
-  def self.search(search)
-  where("name ILIKE ?","%#{search}%") 
-end
+    def self.search(search)
+        where("name ILIKE ?","%#{search}%") 
+    end
 
     def show
     end
@@ -47,6 +47,6 @@ end
 
     private
     def team_params
-        params.require(:team).permit(:name, :users, :tasks, :dragon)
+        params.permit(:name, :users, :tasks, :dragon)
     end
 end
