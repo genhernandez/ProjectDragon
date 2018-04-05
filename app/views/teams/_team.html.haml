@@ -1,0 +1,15 @@
+- if @teams.nil? 
+    %h4 
+- else 
+    %h5  #{@teams.length} results found
+    %table
+        %thead
+            %tr 
+            %th
+            %th
+        %tbody
+            - @teams.each do |team|
+                %tr 
+                %td= team.name
+                %td= link_to 'Make this my team', edit_team_path(current_team_id, team)
+                

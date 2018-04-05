@@ -49,10 +49,11 @@
 								<section id="one">
 								</section>
 								<section id="team">
-	<%= form_tag(teams_path,:method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search for a Team" %>
-    <%= submit_tag "Search", :name => nil %>
+	
    
+<%= form_tag(teams_path, method: :get) do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Search', name: nil %>
 <% end %>
 
 									<%= render 'teams/team' %>
@@ -60,19 +61,17 @@
 								</section>
 								<section id="list">
 									<div class="container">
-										<%= render 'tasks/tasks'%>
+
 									</div>
 								</section>
 								<!-- Add tasks -->
 								<section id="add">
 									<div class="container">
-										<%= render 'tasks/new'%>
 									</div>
 								</section>
 								<section id="dragon">
 								<div class = "container">
 								<h1>Learn about your team's dragon. </h1>
-								<a href="#" class="image"> <%= image_tag(Team.find(current_team_id).dragon.picture_path) %></a>
 								<br><br>
 								<p>info about our dragon</p>
 								<p>Name: </p>
@@ -113,13 +112,13 @@
 							<section id="one">
 							</section>
 							<section id="team">
-								<%= render 'teams/new' %>
+								<%= form_tag(teams_path, method: :get) do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Search', name: nil %>
 							</section>
 							<section id="list">
 								<div class="container">
-											<%= form_tag(:method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search for a Team" %>
-    <%= submit_tag "Search", :name => nil %>
+									
 <% end %>
 									<h1> Create a team to view tasks. </h1>
 								</div>

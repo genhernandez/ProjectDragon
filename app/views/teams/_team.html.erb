@@ -1,7 +1,0 @@
-<% if @teams.nil? %>
-  <h4>There are no teams containing the term <%= params[:search] %>.</h4>
-<% else %>
-    <%= @teams.each do |team| %>
-        <h1><%= team.name %></h1>
-    <% end %>
-<% end %>
