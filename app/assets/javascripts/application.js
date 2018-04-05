@@ -15,6 +15,7 @@
 //= require jquery.min
 //= require jquery.scrolly.min
 //= require jquery.scrollzer.min
+//= require bootstrap
 //= require main
 //= require skel.min
 //= require util

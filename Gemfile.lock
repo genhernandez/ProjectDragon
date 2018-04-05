@@ -41,6 +41,8 @@ GEM
     annotate (2.4.1.beta1)
     arel (8.0.0)
     bindex (0.5.0)
+    bootstrap-sass (3.2.0.2)
+      sass (~> 3.2)
     builder (3.2.3)
     byebug (10.0.0)
     coffee-rails (4.2.2)
@@ -199,6 +201,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (~> 2.4.1.beta)
+  bootstrap-sass (= 3.2.0.2)
   byebug
   coffee-rails (~> 4.2)
   haml
