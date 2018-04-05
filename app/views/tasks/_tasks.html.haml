@@ -7,9 +7,12 @@
     %thead
         %tr
             %th 
-            %th Title
-            %th Due
-            %th Priority
+            %th{ :class => ("hilite" if params["sort_by"] == "title")} 
+                = link_to "Title", team_tasks_path(:sort_by => "title"), :class => 'no_underline'
+            %th{ :class => ("hilite" if params["sort_by"] == "due")} 
+                = link_to "Due", team_tasks_path(:sort_by => "due")
+            %th{ :class => ("hilite" if params["sort_by"] == "priority")} 
+                = link_to "Priority", team_tasks_path(:sort_by => "priority")
             %th Description
             %th 
     %tbody
