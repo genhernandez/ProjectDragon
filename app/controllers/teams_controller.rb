@@ -19,7 +19,7 @@ class TeamsController < ApplicationController
         @team.save!
         current_user.update_attributes(:team => @team)
         current_user.save!
-        redirect_to team_tasks_path(:team_id => current_team_id)
+        redirect_to team_dragons_path(:team_id => current_team_id)
     end
 
     def edit
