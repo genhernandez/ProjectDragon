@@ -23,7 +23,6 @@
 					<ul>
 						<li><a href="#one" class="active">Team</a></li>
 						<li><a href="#list">Tasks</a></li>
-						<li><a href="#add">Add Tasks</a></li>
 						<li><a href="#four">Contact</a></li>
 						<%= link_to "Delete your account", user_path(current_user), :class => :button, :method => :delete %>
 						<li><a href="#dragon">My Team's Dragon</a></li>
@@ -49,34 +48,20 @@
 								<section id="one">
 								</section>
 								<section id="team">
-	
-   
-<%= form_tag(teams_path, method: :get) do %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag 'Search', name: nil %>
-<% end %>
-
+									<%= render 'teams/new' %>
 									<%= render 'teams/team' %>
-
 								</section>
 								<section id="list">
 									<div class="container">
-
-									</div>
-								</section>
-								<!-- Add tasks -->
-								<section id="add">
-									<div class="container">
+										<!-- #render 'tasks/tasks'-->
 									</div>
 								</section>
 								<section id="dragon">
 								<div class = "container">
 								<h1>Learn about your team's dragon. </h1>
+								<a href="#" class="image"><%= image_tag(Team.find(current_team_id).dragon.picture_path) %></a>
 								<br><br>
 								<p>info about our dragon</p>
-								<p>Name: </p>
-								<p>Level: </p>
-			
 
 								</div>
 								<br><br>
@@ -112,14 +97,34 @@
 							<section id="one">
 							</section>
 							<section id="team">
+								<%= render 'teams/new' %>
+								<%= form_tag(teams_path, method: :get) do %>
+  								<%= text_field_tag :search, params[:search] %>
+  								<%= submit_tag 'Search', name: nil %>
+    							<% end %>
+
+							</section>
+							<section id="list">
+								<div class="container">
+													</ul>
+												</div>
+											</div>
+										</form>
+									</div>
+								</section>
+							<% elsif current_user && Team.find(current_team_id).name == "TaskDragon" %>
+							<section id="one">
+							</section>
+							<section id="team">
 								<%= form_tag(teams_path, method: :get) do %>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag 'Search', name: nil %>
+  <% end %>
+
 							</section>
 							<section id="list">
 								<div class="container">
 									
-<% end %>
 									<h1> Create a team to view tasks. </h1>
 								</div>
 							</section>
