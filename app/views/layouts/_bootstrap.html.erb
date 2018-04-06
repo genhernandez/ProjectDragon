@@ -23,6 +23,7 @@
 					<ul>
 						<li><a href="#one" class="active">Team</a></li>
 						<li><a href="#list">Tasks</a></li>
+						<li><a href="#add">Add Tasks</a></li>
 						<li><a href="#four">Contact</a></li>
 						<%= link_to "Delete your account", user_path(current_user), :class => :button, :method => :delete %>
 						<li><a href="#dragon">My Team's Dragon</a></li>
@@ -48,21 +49,32 @@
 								<section id="one">
 								</section>
 								<section id="team">
-									<%= render 'teams/new' %>
+	
+
 									<%= render 'teams/team' %>
+
 								</section>
 								<section id="list">
 									<div class="container">
-										<!-- #render 'tasks/tasks'-->
+										<%=render 'tasks/tasks'%>
+									</div>
+								</section>
+								<!-- Add tasks -->
+								<section id="add">
+									<div class="container">
+										<%=render 'tasks/new'%>
 									</div>
 								</section>
 								<section id="dragon">
-								<div class = "container">
+								<div class = "container">								
 								<h1>Learn about your team's dragon. </h1>
-								<a href="#" class="image"><%= image_tag(Team.find(current_team_id).dragon.picture_path) %></a>
+								<a href="#" class="image"> <%= image_tag(Team.find(current_team_id).dragon.picture_path) %></a>
+
 								<br><br>
 								<p>info about our dragon</p>
-
+				
+								<p><span>Dragon: <strong><%= Team.find(current_user.team_id).dragon.name %></strong></span></p>
+								<p><span>Level: <strong><%= Team.find(current_user.team_id).dragon.level %></strong></span></p>
 								</div>
 								<br><br>
 								</section>
@@ -97,34 +109,18 @@
 							<section id="one">
 							</section>
 							<section id="team">
-								<%= render 'teams/new' %>
-								<%= form_tag(teams_path, method: :get) do %>
-  								<%= text_field_tag :search, params[:search] %>
-  								<%= submit_tag 'Search', name: nil %>
-    							<% end %>
+								<%= form_tag(teams_path,:method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for a Team" %>
+    <%= submit_tag "Find My Team!", :name => nil %>
+ 	
+	<% end %>
+	<%= render 'teams/team' %>
 
 							</section>
 							<section id="list">
 								<div class="container">
-													</ul>
-												</div>
-											</div>
-										</form>
-									</div>
-								</section>
-							<% elsif current_user && Team.find(current_team_id).name == "TaskDragon" %>
-							<section id="one">
-							</section>
-							<section id="team">
-								<%= form_tag(teams_path, method: :get) do %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag 'Search', name: nil %>
-  <% end %>
+																		<%= render 'teams/new' %>
 
-							</section>
-							<section id="list">
-								<div class="container">
-									
 									<h1> Create a team to view tasks. </h1>
 								</div>
 							</section>
@@ -135,9 +131,13 @@
 								</div>
 							</section>
 							<section id="dragon">
-								<div class = "container">
+								<div class = "container">								
 									<h1> Create a team to select a dragon. </h1>
 								</div>
+
+
+								<br><br>
+
 								</section>
 							<!--Four -->
 							<section id="four">
