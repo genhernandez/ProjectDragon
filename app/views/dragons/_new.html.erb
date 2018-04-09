@@ -1,9 +1,9 @@
-<% image_urls.in_groups_of(2, false).each do |group| %>
+<% image_urls.in_groups_of(3, false).each do |group| %>
 <div class="row">
   <% group.each do |img| %>
   <div class="col-md-3">
     <%=  link_to image_tag(img, class: "img-responsive") %>
-    <%= button_to 'Choose Dragon', class: 'btn btn-info btn-sm', remote: true %>
+    <%= link_to "Choose Dragon", new_team_dragons_path(current_team_id), :class => :button, :method => :new %>
   </div>
   <% end %>
 </div>
