@@ -25,9 +25,4 @@ class Dragon < ActiveRecord::Base
             dragon.update_attributes(:level => level + 1)
         end
     end
-
-    private
-    def task_params
-        params.require(:dragon).permit(:id, :name, :picture_path, :xp, :level, :team, :timestamps)
-    end
 end
