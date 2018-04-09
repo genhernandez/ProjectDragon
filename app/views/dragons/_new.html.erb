@@ -1,4 +1,10 @@
-<%= carousel_for(image_urls) %>
-
-//gut the carousel and use a form instead, look at _form.html.haml and tasks_new and tasks_controller
-//can you do an image grid within a form? let's find out
+<% image_urls.in_groups_of(2, false).each do |group| %>
+<div class="row">
+  <% group.each do |img| %>
+  <div class="col-md-3">
+    <%=  link_to image_tag(img, class: "img-responsive") %>
+    <%= button_to 'Choose Dragon', class: 'btn btn-info btn-sm', remote: true %>
+  </div>
+  <% end %>
+</div>
+<% end %>
