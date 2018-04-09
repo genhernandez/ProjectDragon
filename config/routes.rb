@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     resources :tasks do
       post 'complete', on: :member
     end
+    resources :dragons do
+      post 'level_up', on: :member
+    end
   end
 
   resources :sessions, only: [:create, :destroy]

@@ -62,6 +62,8 @@ class TasksController < ApplicationController
         @task = Task.find params[:id]
         completed = @task.complete
         @task.update_attributes!(:complete => !completed)
+        dragon = current_user.team.dragon
+        dragon.level_up(current_user)
         redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
     end
 
