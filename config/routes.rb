@@ -14,7 +14,10 @@ Rails.application.routes.draw do
     resources :tasks do
       post 'complete', on: :member
     end
-    resources :dragons
+    #resources :dragons
+    resources :dragons do
+      post 'level_up', on: :member
+    end
   end
 
 

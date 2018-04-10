@@ -20,6 +20,11 @@ class TeamsController < ApplicationController
         current_user.update_attributes(:team => @team)
         current_user.save!
         redirect_to team_dragons_path(:team_id => current_team_id)
+
+        #dragon = Dragon.create!(:name => 'Dragon', :picture_path => '/img/dragons/green_dragon.gif', :xp => 0, :level => 0, :team => @team)
+        #dragon.save!
+        #redirect_to team_tasks_path(:team_id => current_team_id) 
+
     end
 
     def edit
