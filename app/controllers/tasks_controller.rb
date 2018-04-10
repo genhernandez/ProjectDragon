@@ -4,7 +4,7 @@ class TasksController < ApplicationController
         if sort == nil || sort.empty?
             sort = "title"
         end
-        @tasks = Team.find(current_team_id).tasks.all.order("complete ASC, #{sort} ASC")
+        @tasks = current_user.team.tasks.all.order("complete ASC, #{sort} ASC")
     end
 
     def show
@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     end
 
     def new
-        @task = Team.find(params[:team_id]).tasks.build
+        @task = current_user.team.tasks.build
     end
 
     def create
@@ -45,13 +45,17 @@ class TasksController < ApplicationController
     
     def complete
         @task = Task.find params[:id]
-        completed = @task.complete
-        @task.update_attributes!(:complete => !completed)
+        completed = !@task.complete
+        p completed
+        @task.update_attributes!(:complete => completed)
+        dragon = current_user.team.dragon
+        dragon.level_up(current_user) if completed
         redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
     end
 
     private
     def task_params
+<<<<<<< HEAD
 <<<<<<< HEAD
        params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: Team.find(current_team_id), complete: false)
         #params.permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: Team.find(current_team_id), complete: false)
@@ -59,6 +63,9 @@ class TasksController < ApplicationController
 end
 =======
         params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: Team.find(current_team_id))
+=======
+        params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: current_user.team)
+>>>>>>> 9af2866a6babdef82a3ba9169341a5b0ee8a8c78
     end
 >>>>>>> master
 end

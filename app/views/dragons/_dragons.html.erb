@@ -1,0 +1,6 @@
+<h1>Learn about your team's dragon. </h1>
+<a href="#" class="image"> <%= image_tag(current_user.team.dragon.picture_path) %></a>
+<br><br>
+<p><span>Dragon: <strong><%= current_user.team.dragon.name %></strong></span></p>
+<p><span>Level: <strong><%= current_user.team.dragon.level %></strong></span></p>
+<p><span>XP: <strong><%= current_user.team.dragon.xp %></strong></span></p>
