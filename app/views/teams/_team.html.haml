@@ -11,5 +11,5 @@
             - @teams.each do |team|
                 %tr 
                 %td= team.name
-                %td= link_to 'Make this my team', edit_team_path(current_team_id, team)
+                %td= link_to 'Make this my team', edit_team_path(current_team_id,team.id)
                 

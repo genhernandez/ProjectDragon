@@ -109,17 +109,15 @@
 							<section id="one">
 							</section>
 							<section id="team">
-								<%= form_tag(teams_path,:method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search for a Team" %>
-    <%= submit_tag "Find My Team!", :name => nil %>
- 	
-	<% end %>
-	<%= render 'teams/team' %>
+						<%= render 'teams/new' %>
+						<%= render 'teams/search' %>
+
+						<%= render 'teams/team' %>
 
 							</section>
 							<section id="list">
 								<div class="container">
-																		<%= render 'teams/new' %>
+							
 
 									<h1> Create a team to view tasks. </h1>
 								</div>
