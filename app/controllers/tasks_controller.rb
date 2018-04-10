@@ -61,10 +61,13 @@ class TasksController < ApplicationController
     def complete
         @task = Task.find params[:id]
         completed = !@task.complete
-        p completed
         @task.update_attributes!(:complete => completed)
         dragon = current_user.team.dragon
-        dragon.level_up(current_user) if completed
+        if completed 
+            dragon.level_up(current_user, 10)
+        else 
+            dragon.level_up(current_user, -10)
+        end
         redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
     end
 
