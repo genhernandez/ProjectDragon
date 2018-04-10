@@ -1,6 +1,10 @@
 class TasksController < ApplicationController
     def index
-        @tasks = Team.find(current_team_id).tasks.all.order("complete ASC")
+        sort = params["sort_by"]
+        if sort == nil || sort.empty?
+            sort = "title"
+        end
+        @tasks = Team.find(current_team_id).tasks.all.order("complete ASC, #{sort} ASC")
     end
 
     def show
@@ -48,8 +52,13 @@ class TasksController < ApplicationController
 
     private
     def task_params
+<<<<<<< HEAD
        params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: Team.find(current_team_id), complete: false)
         #params.permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: Team.find(current_team_id), complete: false)
 
 end
+=======
+        params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: Team.find(current_team_id))
+    end
+>>>>>>> master
 end
