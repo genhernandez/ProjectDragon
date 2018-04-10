@@ -63,10 +63,21 @@ class TasksController < ApplicationController
         completed = !@task.complete
         @task.update_attributes!(:complete => completed)
         dragon = current_user.team.dragon
+        points = 10
+        case @task.priority
+        when 1
+            points *= 5
+        when 2
+            points *= 4
+        when 3
+            points *= 3
+        when 4
+            points *= 2
+        end
         if completed 
-            dragon.level_up(current_user, 10)
+            dragon.level_up(current_user, points)
         else 
-            dragon.level_up(current_user, -10)
+            dragon.level_up(current_user, -points)
         end
         redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
     end
