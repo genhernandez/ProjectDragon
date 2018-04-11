@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "/pages/:page" => "pages#show"
 
   resources :teams do
+     #get 'search', on: :collection
+    resources :tasks
     resources :tasks do
       post 'complete', on: :member
     end

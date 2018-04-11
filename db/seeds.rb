@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 Team.create!(:name => 'TaskDragon')
 Dragon.create!(:name => 'Dragon', :picture_path => '/img/dragons/green_dragon.gif', :xp => 0, :level => 0, :team => Team.find(1))
 
