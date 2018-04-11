@@ -1,6 +1,5 @@
 = form_tag teams_path, :method => :post do
-
     = label :team, :name, 'Name'
-    = text_field :team, :name
+    = text_field :team, :name, placeholder: 'Enter Team Name Here'
 
     = submit_tag 'Save Changes'

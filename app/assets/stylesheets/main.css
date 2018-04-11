@@ -7,21 +7,22 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-.dragonop {
-	display: inline;
-	color: gray;
-	padding-right: 50px;
+
+#team_name {
+	width: 80%;
+	margin-bottom: 1em;
 }
 
-.carousel-inner {
-	left: 35%;
+.no_results {
+	margin-left: 2em;
 }
-.carousel-indicators {
-	bottom: -60px;
+#search {
+	width: 80%;
+	margin-bottom: 1em;
 }
-.carousel-indicators li {
-	border: 1px solid #5ed0b1;
-}
+ form {
+	 margin-left: 2em !important;
+ }
 
 tbody tr.hover {
 	cursor: pointer;
