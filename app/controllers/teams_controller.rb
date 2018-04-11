@@ -1,13 +1,12 @@
 class TeamsController < ApplicationController
     def index
-        
         @teams = if params[:search]
-        Team.where('name LIKE ?', "%#{params[:search]}%")
-        #redirect_to teams_path(:team_id => current_team_id)
-
-    else
-        Team.all
-    end
+          Team.where('name LIKE ?', "%#{params[:search]}%")
+          #redirect_to teams_path(:team_id => current_team_id)
+        else
+          #Team.all
+          #wait for search
+        end
     end
 
 
@@ -27,14 +26,12 @@ class TeamsController < ApplicationController
         @team.save!
         current_user.update_attributes(:team => @team)
         current_user.save!
-        dragon = Dragon.create!(:name => 'Dragon', :picture_path => '/img/dragons/green_dragon.gif', :xp => 0, :level => 0, :team => @team)
-        dragon.save!
-        redirect_to team_tasks_path(:team_id => current_team_id)
+        redirect_to team_dragons_path(:team_id => current_team_id)
     end
 
     def edit
         @team = Team.find(params[:id])
-    
+
     end
     def update
     end
