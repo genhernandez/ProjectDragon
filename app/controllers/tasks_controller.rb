@@ -17,11 +17,28 @@ class TasksController < ApplicationController
         @task = current_user.team.tasks.build
     end
 
-    def create
+     def create
+        # raise @params.inspect 
+        @task = Task.new(task_params)
+        # respond_to do |format|
+        #     if @task.save
+        #       format.html { redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list'), notice: 'Task was successfully created.' }
+        #       format.json
+        #     else
+        #       format.html { render action: '_new' }
+        #       format.json { render json: @task.errors, status: :unprocessable_entity }
+        #     end
+        # end
+        if @task.save
+            redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
+        else 
+            #TODO: reload new modal 
+            redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
+            flash[:notice] = "Task can't be created without a title."
+        end
         #raise @params.inspect 
-        @task = Task.create!(task_params)
-        redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
-    end
+      
+     end
 
     def edit
         @task = Task.find params[:id]
@@ -69,6 +86,5 @@ class TasksController < ApplicationController
 end
     private
     def task_params
- params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: Team.find(current_team_id), complete: false)
-        #params.permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: Team.find(current_team_id), complete: false)
+ params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: current_user.team)
     end
