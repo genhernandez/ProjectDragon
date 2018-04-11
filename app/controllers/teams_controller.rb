@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
     def index
+        
         @teams = if params[:search]
         Team.where('name LIKE ?', "%#{params[:search]}%")
         #redirect_to teams_path(:team_id => current_team_id)

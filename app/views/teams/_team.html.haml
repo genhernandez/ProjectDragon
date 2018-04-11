@@ -1,15 +1,15 @@
 - if @teams.nil? 
-    %h4 
+    %h4 No results found
 - else 
-    %h5  #{@teams.length} results found
     %table
         %thead
             %tr 
             %th
             %th
         %tbody
-            - @teams.each do |team|
-                %tr 
-                %td= team.name
-                %td= link_to 'Make this my team', user_path()
+            - @teams.each do |team| 
+                - if team.name != 'TaskDragon'
+                    %tr 
+                    %td= team.name
+                    %td= link_to 'Make this my team', user_path(current_user, :new_team_id => team.id), :method => 'put'
                  
