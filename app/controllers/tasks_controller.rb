@@ -46,26 +46,29 @@ class TasksController < ApplicationController
     def complete
         @task = Task.find params[:id]
         completed = !@task.complete
-        p completed
         @task.update_attributes!(:complete => completed)
         dragon = current_user.team.dragon
-        dragon.level_up(current_user) if completed
+        points = 10
+        case @task.priority
+        when 1
+            points *= 5
+        when 2
+            points *= 4
+        when 3
+            points *= 3
+        when 4
+            points *= 2
+        end
+        if completed 
+            dragon.level_up(current_user, points)
+        else 
+            dragon.level_up(current_user, -points)
+        end
         redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
     end
-
+end
     private
     def task_params
-<<<<<<< HEAD
-<<<<<<< HEAD
-       params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: Team.find(current_team_id), complete: false)
+ params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: Team.find(current_team_id), complete: false)
         #params.permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: Team.find(current_team_id), complete: false)
-
-end
-=======
-        params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: Team.find(current_team_id))
-=======
-        params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: current_user.team)
->>>>>>> 9af2866a6babdef82a3ba9169341a5b0ee8a8c78
     end
->>>>>>> master
-end
