@@ -13,8 +13,9 @@
 	margin-bottom: 1em;
 }
 
-.no_results {
+.results {
 	margin-left: 2em;
+	width: 80%;
 }
 #search {
 	width: 80%;
