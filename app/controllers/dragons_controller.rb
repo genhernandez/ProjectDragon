@@ -1,5 +1,6 @@
 class DragonsController < ApplicationController
     def create
+      p dragon_params
       @dragon = Dragon.new(dragon_params)
       redirect_to team_tasks_path(:id => current_team_id)
     end

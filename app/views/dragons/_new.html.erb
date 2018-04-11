@@ -1,10 +1,23 @@
-<% image_urls.in_groups_of(3, false).each do |group| %>
+<!-- <% image_urls.in_groups_of(3, false).each do |group| %>
 <div class="row">
   <% group.each do |img| %>
   <div class="col-md-3">
     <%=  link_to image_tag(img, class: "img-responsive") %>
-    <%= link_to "Choose Dragon", new_team_dragons_path(current_team_id), :class => :button, :method => :new %>
+    <%= link_to "Choose Dragon", team_dragons_path(current_team_id, :picture_path => img), :class => :button, :method => :post %>
   </div>
   <% end %>
 </div>
-<% end %>
+<% end %> -->
+<select class="image-picker show-html">
+  <% image_urls.each do |img| %>
+    <option data-img-src="<%= "#{img}" %>" value='42' class='image-picker show-html'> <%= "#{img}" %> </option>
+  <% end %>
+</select>
+
+<!-- <%= form_tag(team_dragons_path, method: 'post') do %>
+  <%= image_urls.each do |img| %>
+  <option data-img-src="<%= "#{img}" %>" value='42' class='image-picker'>
+  <%= select_tag("dragon", { :class=>"image-picker show-html"}) %>
+  <% end %>
+<% end %> -->
+<!-- use look new tasks and the form partial, you want a label for name and a select for color, based on color write switch statement that add write name, add color attribute to dragon if it fails, rails g migration add_color_to_dragon color:string --> 
