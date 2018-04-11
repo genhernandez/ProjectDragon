@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   resources :teams do
      #get 'search', on: :collection
-    resources :tasks
     resources :tasks do
       post 'complete', on: :member
     end
