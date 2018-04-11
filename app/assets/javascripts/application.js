@@ -17,7 +17,6 @@
 //= require jquery.scrolly.min
 //= require jquery.scrollzer.min
 //= require bootstrap
-//= require image-picker
 //= require main
 //= require skel.min
 //= require util

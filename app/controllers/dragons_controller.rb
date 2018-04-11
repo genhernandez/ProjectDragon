@@ -1,7 +1,20 @@
 class DragonsController < ApplicationController
     def create
-      p dragon_params
       @dragon = Dragon.new(dragon_params)
+
+      case @dragon.color
+      when 'green'
+          @dragon.picture_path = 'img/green_dragon.gif'
+      when 'blue'
+          @dragon.picture_path = 'img/blue_dragon.gif'
+      when 'yellow'
+          @dragon.picture_path = 'img/yellow_dragon.gif'
+      when 'red'
+          @dragon.picture_path = 'img/red_dragon.gif'
+      when 'purple'
+          @dragon.picture_path = 'img/purple_dragon.gif'
+      end
+
       redirect_to team_tasks_path(:id => current_team_id)
     end
 
@@ -14,3 +27,5 @@ class DragonsController < ApplicationController
         params.require(:dragon).permit(:picture_path, :name, :id, :xp, :level).merge(team: Team.find(current_team_id))
     end
 end
+
+#rails g migration add_color_to_dragon color:string -->
