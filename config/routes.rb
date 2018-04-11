@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get "/pages/:page" => "pages#show"
 
   resources :teams do
-    resources :tasks
     resources :tasks do
       post 'complete', on: :member
     end
