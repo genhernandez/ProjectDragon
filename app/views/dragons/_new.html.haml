@@ -1,0 +1,9 @@
+= form_tag team_dragons_path(:id => current_team_id), :method => :post do
+  = label :dragon, :name, 'Name'
+  = text_field :dragon, :name
+
+  = label :dragon, :color, 'Color'
+  = select :dragon, :color, ['Green', 'Blue', 'Purple', 'Yellow', 'Red'], selected: 1
+
+  = submit_tag 'Set Dragon'
+  = link_to 'Cancel', team_dragons_path(:id => current_team_id), :class => :button
