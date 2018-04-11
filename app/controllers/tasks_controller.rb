@@ -17,7 +17,7 @@ class TasksController < ApplicationController
         @task = current_user.team.tasks.build
     end
 
-    def create
+     def create
         # raise @params.inspect 
         @task = Task.new(task_params)
         # respond_to do |format|
@@ -36,7 +36,9 @@ class TasksController < ApplicationController
             redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
             flash[:notice] = "Task can't be created without a title."
         end
-    end
+        #raise @params.inspect 
+      
+     end
 
     def edit
         @task = Task.find params[:id]
@@ -61,15 +63,28 @@ class TasksController < ApplicationController
     def complete
         @task = Task.find params[:id]
         completed = !@task.complete
-        p completed
         @task.update_attributes!(:complete => completed)
         dragon = current_user.team.dragon
-        dragon.level_up(current_user) if completed
+        points = 10
+        case @task.priority
+        when 1
+            points *= 5
+        when 2
+            points *= 4
+        when 3
+            points *= 3
+        when 4
+            points *= 2
+        end
+        if completed 
+            dragon.level_up(current_user, points)
+        else 
+            dragon.level_up(current_user, -points)
+        end
         redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
     end
-
+end
     private
     def task_params
-        params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: current_user.team)
+ params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: current_user.team)
     end
-end

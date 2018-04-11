@@ -47,12 +47,10 @@
 							<% if current_user && current_user.team.name != "TaskDragon" && Team.find(current_team_id).dragon %>
 								<section id="one">
 								</section>
-								<section id="team">
-									<%= render 'teams/team' %>
-								</section>
+						
 								<section id="list">
 									<div class="container">
-										<%= render 'tasks/tasks'%>
+										<%=render 'tasks/tasks'%>
 									</div>
 								</section>
 								<section id="dragon">
@@ -139,10 +137,16 @@
 							<section id="one">
 							</section>
 							<section id="team">
-								<%= render 'teams/new' %>
+						<%= render 'teams/new' %>
+						<%= render 'teams/search' %>
+
+						<%= render 'teams/team' %>
+
 							</section>
 							<section id="list">
 								<div class="container">
+							
+
 									<h1> Create a team to view tasks. </h1>
 								</div>
 							</section>
@@ -153,9 +157,13 @@
 								</div>
 							</section>
 							<section id="dragon">
-								<div class = "container">
+								<div class = "container">								
 									<h1> Create a team to select a dragon. </h1>
 								</div>
+
+
+								<br><br>
+
 								</section>
 							<!--Four -->
 							<section id="four">

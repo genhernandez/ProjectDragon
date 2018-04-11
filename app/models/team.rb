@@ -12,4 +12,7 @@ class Team < ActiveRecord::Base
     has_many :users
     has_many :tasks
     has_one :dragon
+    def self.search(search)
+  where("name LIKE ?","%#{search}%") 
+end
 end

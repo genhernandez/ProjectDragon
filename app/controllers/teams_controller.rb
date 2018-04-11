@@ -1,7 +1,15 @@
 class TeamsController < ApplicationController
     def index
-      @teams = Team.all
+        
+        @teams = if params[:search]
+        Team.where('name LIKE ?', "%#{params[:search]}%")
+        #redirect_to teams_path(:team_id => current_team_id)
+
+    else
+        Team.all
     end
+    end
+
 
     def show
     end
@@ -28,9 +36,9 @@ class TeamsController < ApplicationController
     end
 
     def edit
-        @team = Team.find params[:id]
+        @team = Team.find(params[:id])
+    
     end
-
     def update
     end
 
@@ -43,6 +51,6 @@ class TeamsController < ApplicationController
 
     private
     def team_params
-        params.require(:team).permit(:name, :users, :tasks, :dragon)
+        params.require(:team).permit(:name, :users, :tasks, :dragon, :search)
     end
 end
