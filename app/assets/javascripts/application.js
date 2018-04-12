@@ -17,8 +17,8 @@
 //= require jquery.scrolly.min
 //= require jquery.scrollzer.min
 //= require bootstrap
-//= require main
 //= require skel.min
+//= require main
 //= require util
 //= require rails-ujs
 //= require turbolinks

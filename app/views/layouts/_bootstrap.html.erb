@@ -1,5 +1,4 @@
 	<body>
-
 		<!-- Header -->
 			<section id="header">
 				<header>
@@ -26,7 +25,6 @@
 						<li><a href="#four">Contact</a></li>
 						<%= link_to "Delete your account", user_path(current_user), :class => :button, :method => :delete %>
 						<li><a href="#dragon">My Team's Dragon</a></li>
-
 					</ul>
 					<% else %>
 					<ul>
@@ -37,17 +35,14 @@
 					<% end %>
 				</nav>
 			</section>
-
 		<!-- Wrapper -->
 			<div id="wrapper">
-
 				<!-- Main -->
 					<div id="main">
 							<!-- All tasks -->
 							<% if current_user && current_user.team.name != "TaskDragon" && Team.find(current_team_id).dragon %>
 								<section id="one">
 								</section>
-
 								<section id="list">
 									<div class="container">
 										<% flash.each do |key, value| %>
@@ -159,10 +154,7 @@
 								<div class = "container">
 									<h1> Create a team to select a dragon. </h1>
 								</div>
-
-
-								<br><br>
-
+							<br><br>
 								</section>
 							<!--Four -->
 							<section id="four">
@@ -191,7 +183,6 @@
 									</form>
 								</div>
 							</section>
-
 							<% else %>
 							<!-- One -->
 								<section id="one">
@@ -203,7 +194,6 @@
 										</header>
 									</div>
 								</section>
-
 							<!-- Two -->
 								<section id="two">
 									<div class="container">
@@ -244,7 +234,6 @@
 								</section>
 							<% end %>
 					</div>
-
 				<!-- Footer -->
 					<section id="footer">
 						<div class="container">
@@ -253,6 +242,12 @@
 							</ul>
 						</div>
 					</section>
-			</div>
 
+					<div id="titleBar">
+						<a href="#header" class="toggle"></a>
+						<span class="title">
+							<a href="#">Task Dragon </a>
+						</span>
+					</div>
+			</div>
 	</body>
