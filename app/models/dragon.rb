@@ -14,7 +14,8 @@
 
 class Dragon < ActiveRecord::Base
     belongs_to :team
-
+    validates :name, :presence => true
+    
     def level_up(current_user, points)
         levels = [100, 300, 600, 1200, 2400, 4800]
         dragon = current_user.team.dragon

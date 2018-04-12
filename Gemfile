@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bootstrap', '~> 4.0.0'
 
 gem 'jquery-rails'
 #use Haml for templates
