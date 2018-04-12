@@ -13,14 +13,16 @@ class DragonsController < ApplicationController
       when 'Purple'
           picture_path = image_urls[2]
       end
-      if dragon.save
+      if @dragon.save
         @dragon.update_attributes!(:picture_path => picture_path)
         @dragon.update_attributes!(:level => 1)
         @dragon.update_attributes!(:xp => 0)
         redirect_to team_tasks_path(:id => current_team_id)
       else
         redirect_to team_dragons_path(:id => current_team_id)
+        #where is my flash?
         flash[:notice] = "Dragon can't be created without a name."
+      end
     end
 
     def new
