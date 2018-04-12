@@ -20,7 +20,6 @@ class DragonsController < ApplicationController
         redirect_to team_tasks_path(:id => current_team_id)
       else
         redirect_to team_dragons_path(:id => current_team_id)
-        #where is my flash?
         flash[:notice] = "Dragon can't be created without a name."
       end
     end
