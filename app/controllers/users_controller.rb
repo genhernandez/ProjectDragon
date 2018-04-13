@@ -16,6 +16,14 @@ class UsersController < ApplicationController
         end
     end
 
+    #if we import skel.min.js before main to implement mobile, then this show method is needed
+    #the abstraction fairy is going to kill me - Genesis
+    def show
+        @user = User.find(params[:id])
+        @user.destroy
+        redirect_to root_path
+    end
+    
     def edit
         @user = User.find params[:id]
     end
