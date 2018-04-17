@@ -6,7 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bootstrap', '~> 4.0.0'
-
+gem 'mailgun'
+gem 'figaro'
 gem 'jquery-rails'
 #use Haml for templates
 gem 'haml'

@@ -62,26 +62,7 @@
 									<div class="container">
 										<h3>Contact us</h3>
 										<p>Questions, comments, concerns? Let us know!</p>
-										<form method="post" action="#">
-											<div class="row uniform">
-												<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
-												<div class="6u 12u(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
-											</div>
-											<div class="row uniform">
-												<div class="12u"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-											</div>
-											<div class="row uniform">
-												<div class="12u"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
-											</div>
-											<div class="row uniform">
-												<div class="12u">
-													<ul class="actions">
-														<li><input type="submit" class="special" value="Send Message" /></li>
-														<li><input type="reset" value="Reset Form" /></li>
-													</ul>
-												</div>
-											</div>
-										</form>
+										<%=render 'messages/message'%>
 									</div>
 								</section>
 							<% elsif current_user &&  current_user.team.name != "TaskDragon" && !Team.find(current_team_id).dragon %>
@@ -106,30 +87,7 @@
 								</section>
 							<!--Four -->
 							<section id="four">
-								<div class="container">
-									<h3>Contact us</h3>
-									<p>Questions, comments, concerns? Let us know!</p>
-									<form method="post" action="#">
-										<div class="row uniform">
-											<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
-											<div class="6u 12u(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u">
-												<ul class="actions">
-													<li><input type="submit" class="special" value="Send Message" /></li>
-													<li><input type="reset" value="Reset Form" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
-								</div>
+								<%= render 'messages/message' %>
 							</section>
 							<% elsif current_user && Team.find(current_team_id).name == "TaskDragon" %>
 							<section id="one">
@@ -158,30 +116,9 @@
 								</section>
 							<!--Four -->
 							<section id="four">
-								<div class="container">
 									<h3>Contact us</h3>
-									<p>Questions, comments, concerns? Let us know!</p>
-									<form method="post" action="#">
-										<div class="row uniform">
-											<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
-											<div class="6u 12u(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u">
-												<ul class="actions">
-													<li><input type="submit" class="special" value="Send Message" /></li>
-													<li><input type="reset" value="Reset Form" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
-								</div>
+										<p>Questions, comments, concerns? Let us know!</p>
+								<%= render 'messages/message'%>
 							</section>
 							<% else %>
 							<!-- One -->
@@ -207,30 +144,7 @@
 								</section>
 							<!-- Four -->
 								<section id="four">
-									<div class="container">
-										<h3>Contact us</h3>
-										<p>Questions, comments, concerns? Let us know!</p>
-										<form method="post" action="#">
-											<div class="row uniform">
-												<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
-												<div class="6u 12u(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
-											</div>
-											<div class="row uniform">
-												<div class="12u"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-											</div>
-											<div class="row uniform">
-												<div class="12u"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
-											</div>
-											<div class="row uniform">
-												<div class="12u">
-													<ul class="actions">
-														<li><input type="submit" class="special" value="Send Message" /></li>
-														<li><input type="reset" value="Reset Form" /></li>
-													</ul>
-												</div>
-											</div>
-										</form>
-									</div>
+									<%= render 'messages/message'%>
 								</section>
 							<% end %>
 					</div>

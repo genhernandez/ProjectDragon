@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
 
   resources :users
-
+resources :messages
   #root :to => redirect('/teams')
   root :to => redirect('/pages/home')
 end

@@ -1,0 +1,11 @@
+<%= form_with model: @message do |form| %>
+<h1> Name: </h1>
+<%=  form.text_field :name %>
+<h1> Email: </h1>
+
+  <%= form.text_field :email %>
+  <h1> Message: </h1>
+
+  <%=  form.text_field :message %>
+  <%= form.submit 'Send Email' %>
+<% end %>
