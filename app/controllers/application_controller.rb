@@ -14,4 +14,5 @@ class ApplicationController < ActionController::Base
   helper_method :image_urls
   def image_urls
    @image_urls = [['/img/dragons/green_egg.png', '/img/dragons/blue_egg.png', '/img/dragons/purple_egg.png', '/img/dragons/red_egg.png', '/img/dragons/yellow_egg.png'],['/img/dragons/green_dragon_still.png', '/img/dragons/blue_dragon_still.png', '/img/dragons/purple_dragon_still.png', '/img/dragons/red_dragon_still.png', '/img/dragons/yellow_dragon_still.png']]
+  end
 end

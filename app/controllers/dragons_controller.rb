@@ -15,7 +15,7 @@ class DragonsController < ApplicationController
       end
       if @dragon.save
         @dragon.update_attributes!(:picture_path => picture_path)
-        @dragon.update_attributes!(:level => 1)
+        @dragon.update_attributes!(:level => 0)
         @dragon.update_attributes!(:xp => 0)
         redirect_to team_tasks_path(:id => current_team_id)
       else
