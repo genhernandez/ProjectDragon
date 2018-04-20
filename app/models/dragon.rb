@@ -21,24 +21,27 @@ class Dragon < ActiveRecord::Base
     dragon = current_user.team.dragon
     xp = dragon.xp + points
     level = dragon.level
+    if level > 0 && xp < levels[level]
+      level -= 1
+    elsif level < levels.length && xp >= levels[level]
+      level += 1
+    end 
     dragon.update_attributes!(:xp => xp)
-    if level < levels.length && xp >= levels[level]
-      dragon.update_attributes(:level => level+=1)
-      if level < 2
-        case dragon.color
-        when 'Green'
-          picture_path = image_urls[level][0]
-        when 'Blue'
-          picture_path = image_urls[level][1]
-        when 'Yellow'
-          picture_path = image_urls[level][4]
-        when 'Red'
-          picture_path = image_urls[level][3]
-        when 'Purple'
-          picture_path = image_urls[level][2]
-        end
-        dragon.update_attributes!(:picture_path => picture_path)
+    dragon.update_attributes!(:level => level)
+    if level < image_urls.length
+      case dragon.color
+      when 'Green'
+        picture_path = image_urls[level][0]
+      when 'Blue'
+        picture_path = image_urls[level][1]
+      when 'Yellow'
+        picture_path = image_urls[level][4]
+      when 'Red'
+        picture_path = image_urls[level][3]
+      when 'Purple'
+        picture_path = image_urls[level][2]
       end
+      dragon.update_attributes!(:picture_path => picture_path)
     end
   end
 end
