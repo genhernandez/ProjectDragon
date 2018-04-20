@@ -1,0 +1,17 @@
+%table
+    %thead
+        %th Team Members
+    %tbody 
+        - current_user.team.users.each do |user|
+            %tr 
+                %td= user.name 
+
+
+%p{:class => :button, :id => :codeButton}Confirmation code 
+%p{:id => :code} #{current_user.team.confirmation_code}
+
+:javascript 
+    $('#codeButton').click(function() {
+        $('#code').show();
+    });
+    
