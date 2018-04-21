@@ -9,7 +9,6 @@
 						<% if current_user %>
 						<h1 id="logo"><%= current_user.name %></h1>
 						<p><span>Team <strong><%= current_user.team.name %></strong>!</span></p>
-						<p><%= current_user.team.confirmation_code %></p>
 						<span><%= link_to "Sign out", signout_path, id: "sign_out"%></span>
 						<% else %>
 						<h1 id="logo">Welcome</h1>
@@ -68,6 +67,12 @@
 								</section>
 								<br><br>
 								</section>
+								<section id="team">
+									<div class="container">
+										<%= render 'teams/show'%>
+									</div>
+								</section>
+								<br><br>
 								<!--Four -->
 								<section id="four">
 									<div class="container">
@@ -114,6 +119,12 @@
 										<h1> Choose a dragon to add tasks. </h1>
 									</div>
 								</section>
+								<section id="team">
+									<div class="container">
+										<h1> Choose a dragon to view team details. </h1>
+									</div>
+								</section>
+								<br><br>
 							<!--Four -->
 							<section id="four">
 								<div class="container">
