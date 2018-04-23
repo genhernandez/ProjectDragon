@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class TeamsController < ApplicationController
     def index
         if params[:search] 
@@ -30,6 +32,7 @@ end
 
         @team = Team.create!(team_params)
         @team.update_attributes(:user_ids => [current_user.id])
+        @team.update_attributes(:confirmation_code => SecureRandom.hex)
         @team.save!
         current_user.update_attributes(:team => @team)
         current_user.save!

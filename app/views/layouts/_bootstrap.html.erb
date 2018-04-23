@@ -18,13 +18,21 @@
 					<!-- <p><a href="#one" class="active">Login/Signup</a></p> -->
 				</header>
 				<nav id="nav">
-					<% if current_user %>
+					<% if current_user && current_user.team.name != "TaskDragon" %>
 					<ul>
-						<li><a href="#one" class="active">Team</a></li>
+						<li><a href="#dragon" class="active"> Dragon</a></li>
 						<li><a href="#list">Tasks</a></li>
+						<li><a href="#team">Team</a></li>
 						<li><a href="#four">Contact</a></li>
 						<%= link_to "Delete your account", user_path(current_user), :class => :button, :method => :delete %>
-						<li><a href="#dragon">My Team's Dragon</a></li>
+					</ul>
+					<% elsif current_user && Team.find(current_team_id).name == "TaskDragon" %>
+					<ul>
+						<li><a href="#team" class="active">Team</a></li>
+						<li><a href="#list">Tasks</a></li>
+						<li><a href="#dragon"> Dragon</a></li>
+						<li><a href="#four">Contact</a></li>
+						<%= link_to "Delete your account", user_path(current_user), :class => :button, :method => :delete %>
 					</ul>
 					<% else %>
 					<ul>
@@ -43,6 +51,12 @@
 							<% if current_user && current_user.team.name != "TaskDragon" && Team.find(current_team_id).dragon %>
 								<section id="one">
 								</section>
+								<section id="dragon">
+								<div class = "container">
+									<%= render 'dragons/dragons'%>
+								</div>
+							</section>
+								<br><br>
 								<section id="list">
 									<div class="container">
 										<% flash.each do |key, value| %>
@@ -59,6 +73,12 @@
 								</div>
 								<br><br>
 								</section>
+								<section id="team">
+									<div class="container">
+										<%= render 'teams/show'%>
+									</div>
+								</section>
+								<br><br>
 								<!--Four -->
 								<section id="four">
 									<div class="container">
@@ -68,25 +88,30 @@
 									</div>
 								</section>
 							<% elsif current_user &&  current_user.team.name != "TaskDragon" && !Team.find(current_team_id).dragon %>
-							<!-- <section id="one">
-							</section> -->
+							<section id="one">
+							</section>
 							<section id="dragon">
 								<div class = "container">
 									<h1> Select a dragon. </h1>
 									<%= render 'dragons/new' %>
 								</div>
+								<br><br>
 								</section>
 								<section id="list">
 									<div class="container">
 										<h1> Choose a dragon to view tasks. </h1>
 									</div>
-								</section>
 								<!-- Add tasks -->
-								<section id="add">
 									<div class="container">
 										<h1> Choose a dragon to add tasks. </h1>
 									</div>
 								</section>
+								<section id="team">
+									<div class="container">
+										<h1> Choose a dragon to view team details. </h1>
+									</div>
+								</section>
+								<br><br>
 							<!--Four -->
 							<section id="four">
 								<%= render 'messages/message' %>
@@ -99,17 +124,17 @@
 								<%= render 'teams/search' %>
 								<%= render 'teams/team' %>
 							</section>
+							<br><br>
 							<section id="list">
 								<div class="container">
 									<h1> Create a team to view tasks. </h1>
 								</div>
-							</section>
 							<!-- Add tasks -->
-							<section id="add">
 								<div class="container">
 									<h1> Create a team to add tasks. </h1>
 								</div>
 							</section>
+							<br><br>
 							<section id="dragon">
 								<div class = "container">
 									<h1> Create a team to select a dragon. </h1>

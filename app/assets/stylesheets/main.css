@@ -8,6 +8,13 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+#code {
+	display: none;
+}
+
+.dragon_img {
+	width: 15em;
+}
 #team_name {
 	width: 80%;
 	margin-bottom: 1em;
@@ -52,6 +59,7 @@ th.hilite {
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
+		overflow-x: auto;
 	}
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -226,6 +234,19 @@ th.hilite {
 	}
 
 	@media screen and (max-width: 480px) {
+		.table_button {
+			width: 110%;
+			font-size: 0.7em;
+			padding-left: 10px !important;
+			padding-right: 10px !important;
+		}
+
+		.new_button {
+			width: 20%;
+			font-size: 0.7em;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
 
 		.container.\31 25\25 {
 			width: 100%;

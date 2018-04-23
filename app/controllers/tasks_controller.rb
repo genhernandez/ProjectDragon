@@ -18,7 +18,7 @@ class TasksController < ApplicationController
     end
 
      def create
-        # raise @params.inspect 
+        # raise @params.inspect
         @task = Task.new(task_params)
         # respond_to do |format|
         #     if @task.save
@@ -31,13 +31,13 @@ class TasksController < ApplicationController
         # end
         if @task.save
             redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
-        else 
-            #TODO: reload new modal 
+        else
+            #TODO: reload new modal
             redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
             flash[:notice] = "Task can't be created without a title."
         end
-        #raise @params.inspect 
-      
+        #raise @params.inspect
+
      end
 
     def edit
@@ -48,9 +48,9 @@ class TasksController < ApplicationController
         @task = Task.find params[:id]
         if @task.update_attributes(task_params)
             redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
-        else 
+        else
             redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
-            #TODO: reload edit modal 
+            #TODO: reload edit modal
         end
     end
 
@@ -59,7 +59,7 @@ class TasksController < ApplicationController
         @task.destroy
         redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
     end
-    
+
     def complete
         @task = Task.find params[:id]
         completed = !@task.complete
@@ -76,10 +76,10 @@ class TasksController < ApplicationController
         when 4
             points *= 2
         end
-        if completed 
-            dragon.level_up(current_user, points)
-        else 
-            dragon.level_up(current_user, -points)
+        if completed
+            dragon.level_up(current_user, points, image_urls)
+        else
+            dragon.level_up(current_user, -points, image_urls)
         end
         redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
     end

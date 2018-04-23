@@ -3,19 +3,19 @@ class DragonsController < ApplicationController
       @dragon = Dragon.new(dragon_params)
       case @dragon.color
       when 'Green'
-          picture_path = image_urls[0]
+          picture_path = image_urls[0][0]
       when 'Blue'
-          picture_path = image_urls[1]
+          picture_path = image_urls[0][1]
       when 'Yellow'
-          picture_path = image_urls[4]
+          picture_path = image_urls[0][4]
       when 'Red'
-          picture_path = image_urls[3]
+          picture_path = image_urls[0][3]
       when 'Purple'
-          picture_path = image_urls[2]
+          picture_path = image_urls[0][2]
       end
       if @dragon.save
         @dragon.update_attributes!(:picture_path => picture_path)
-        @dragon.update_attributes!(:level => 1)
+        @dragon.update_attributes!(:level => 0)
         @dragon.update_attributes!(:xp => 0)
         redirect_to team_tasks_path(:id => current_team_id)
       else

@@ -1,4 +1,4 @@
-= link_to 'New task', new_team_task_path(current_team_id), remote: true, :class => :button
+= link_to 'New task', new_team_task_path(current_team_id), remote: true, :class => 'button new_button'
 
 -#https://iridakos.com/tutorials/2013/12/07/creating-a-simple-todo-part-1
 #modal.modal.fade
@@ -6,31 +6,31 @@
 %table#tasks
     %thead
         %tr
-            %th 
-            %th{ :class => ("hilite" if params["sort_by"] == "title")} 
+            %th
+            %th{ :class => ("hilite" if params["sort_by"] == "title")}
                 = link_to "Title", team_tasks_path(:sort_by => "title"), :class => 'no_underline'
-            %th{ :class => ("hilite" if params["sort_by"] == "due")} 
+            %th{ :class => ("hilite" if params["sort_by"] == "due")}
                 = link_to "Due", team_tasks_path(:sort_by => "due")
-            %th{ :class => ("hilite" if params["sort_by"] == "priority")} 
+            %th{ :class => ("hilite" if params["sort_by"] == "priority")}
                 = link_to "Priority", team_tasks_path(:sort_by => "priority")
             %th Description
-            %th 
+            %th
     %tbody
         -@tasks.each do |task|
             %tr{:class => ("complete" if task.complete)}
                 -#:class => task.complete ? 'complete clickable-row' : 'clickable-row', 'data-href' => complete_team_task_path(current_team_id, task)
-                %td= link_to task.complete ? 'Done' : 'Complete', complete_team_task_path(current_team_id, task), :class => 'button link', :method => :complete
+                %td= link_to task.complete ? 'Done' : 'Complete', complete_team_task_path(current_team_id, task), :class => 'button link table_button', :method => :complete
                 %td= task.title
                 %td= task.due.strftime("%b %d, %Y")
                 %td= task.priority
                 %td= task.description
-                %td= link_to 'Edit', edit_team_task_path(current_team_id, task), remote: true, :class => "button link"
-                %td= link_to 'Delete', team_task_path(current_team_id, task), :class => "button link", :method => :delete 
+                %td= link_to 'Edit', edit_team_task_path(current_team_id, task), remote: true, :class => "button link table_button"
+                %td= link_to 'Delete', team_task_path(current_team_id, task), :class => "button link table_button", :method => :delete
 
 -# :javascript
 -# //https://stackoverflow.com/questions/6330763/jquery-table-row-click-event-also-firing-when-i-click-a-link
 -# //$('.clickable-row .link').click(function(e){
--# //    e.stopPropagation(); 
+-# //    e.stopPropagation();
 -# //});
 -# $('.clickable-row').hover( function () {
 -#     $(this).toggleClass('hover');
@@ -42,4 +42,3 @@
 -#         url: url
 -#     });
 -# });
-    
