@@ -5,6 +5,9 @@ class TeamsController < ApplicationController
         if params[:search] 
             if params[:search] == ""
                 flash[:notice] = "Search cannot be blank."
+            elsif Team.where('name LIKE ?', "%#{params[:search]}%").blank?
+                            flash[:notice] = "No teams found."
+                
             else
              @teams = Team.where('name LIKE ?', "%#{params[:search]}%")
               
