@@ -1,5 +1,4 @@
 	<body>
-
 		<!-- Header -->
 			<section id="header">
 				<header>
@@ -26,7 +25,6 @@
 						<li><a href="#four">Contact</a></li>
 						<%= link_to "Delete your account", user_path(current_user), :class => :button, :method => :delete %>
 						<li><a href="#dragon">My Team's Dragon</a></li>
-
 					</ul>
 					<% else %>
 					<ul>
@@ -37,19 +35,19 @@
 					<% end %>
 				</nav>
 			</section>
-
 		<!-- Wrapper -->
 			<div id="wrapper">
-
 				<!-- Main -->
 					<div id="main">
 							<!-- All tasks -->
-							<% if current_user && current_user.team.name != "TaskDragon" %>
+							<% if current_user && current_user.team.name != "TaskDragon" && Team.find(current_team_id).dragon %>
 								<section id="one">
 								</section>
-						
 								<section id="list">
 									<div class="container">
+										<% flash.each do |key, value| %>
+										  <div class="alert alert-<%= key %>"><%= value %></div>
+										<% end %>
 										<%=render 'tasks/tasks'%>
 									</div>
 								</section>
@@ -66,42 +64,43 @@
 									<div class="container">
 										<h3>Contact us</h3>
 										<p>Questions, comments, concerns? Let us know!</p>
-										<form method="post" action="#">
-											<div class="row uniform">
-												<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
-												<div class="6u 12u(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
-											</div>
-											<div class="row uniform">
-												<div class="12u"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-											</div>
-											<div class="row uniform">
-												<div class="12u"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
-											</div>
-											<div class="row uniform">
-												<div class="12u">
-													<ul class="actions">
-														<li><input type="submit" class="special" value="Send Message" /></li>
-														<li><input type="reset" value="Reset Form" /></li>
-													</ul>
-												</div>
-											</div>
-										</form>
+										<%=render 'messages/message'%>
 									</div>
 								</section>
-							<% elsif current_user && current_user.team.name == "TaskDragon" %>
+							<% elsif current_user &&  current_user.team.name != "TaskDragon" && !Team.find(current_team_id).dragon %>
+							<!-- <section id="one">
+							</section> -->
+							<section id="dragon">
+								<div class = "container">
+									<h1> Select a dragon. </h1>
+									<%= render 'dragons/new' %>
+								</div>
+								</section>
+								<section id="list">
+									<div class="container">
+										<h1> Choose a dragon to view tasks. </h1>
+									</div>
+								</section>
+								<!-- Add tasks -->
+								<section id="add">
+									<div class="container">
+										<h1> Choose a dragon to add tasks. </h1>
+									</div>
+								</section>
+							<!--Four -->
+							<section id="four">
+								<%= render 'messages/message' %>
+							</section>
+							<% elsif current_user && Team.find(current_team_id).name == "TaskDragon" %>
 							<section id="one">
 							</section>
 							<section id="team">
-						<%= render 'teams/new' %>
-						<%= render 'teams/search' %>
-
-						<%= render 'teams/team' %>
-
+								<%= render 'teams/new' %>
+								<%= render 'teams/search' %>
+								<%= render 'teams/team' %>
 							</section>
 							<section id="list">
 								<div class="container">
-							
-
 									<h1> Create a team to view tasks. </h1>
 								</div>
 							</section>
@@ -112,42 +111,17 @@
 								</div>
 							</section>
 							<section id="dragon">
-								<div class = "container">								
+								<div class = "container">
 									<h1> Create a team to select a dragon. </h1>
 								</div>
-
-
-								<br><br>
-
+							<br><br>
 								</section>
 							<!--Four -->
 							<section id="four">
-								<div class="container">
 									<h3>Contact us</h3>
-									<p>Questions, comments, concerns? Let us know!</p>
-									<form method="post" action="#">
-										<div class="row uniform">
-											<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
-											<div class="6u 12u(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u">
-												<ul class="actions">
-													<li><input type="submit" class="special" value="Send Message" /></li>
-													<li><input type="reset" value="Reset Form" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
-								</div>
+										<p>Questions, comments, concerns? Let us know!</p>
+								<%= render 'messages/message'%>
 							</section>
-
 							<% else %>
 							<!-- One -->
 								<section id="one">
@@ -159,7 +133,6 @@
 										</header>
 									</div>
 								</section>
-
 							<!-- Two -->
 								<section id="two">
 									<div class="container">
@@ -171,68 +144,12 @@
 										</ul>
 									</div>
 								</section>
-
-							<!-- Three -->
-								<section id="three">
-									<div class="container">
-										<h3>A Few Accomplishments</h3>
-										<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
-										<div class="features">
-											<article>
-												<a href="#" class="image"><img src="/img/pic01.jpg"  /></a>
-												<div class="inner">
-													<h4>Possibly broke spacetime</h4>
-													<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-												</div>
-											</article>
-											<article>
-												<a href="#" class="image"><img src="/img/pic02.jpg" alt="" /></a>
-												<div class="inner">
-													<h4>Terraformed a small moon</h4>
-													<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-												</div>
-											</article>
-											<article>
-												<a href="#" class="image"><img src="/img/pic03.jpg" alt="" /></a>
-												<div class="inner">
-													<h4>Snapped dark matter in the wild</h4>
-													<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-												</div>
-											</article>
-										</div>
-									</div>
-								</section>
-
 							<!-- Four -->
 								<section id="four">
-									<div class="container">
-										<h3>Contact us</h3>
-										<p>Questions, comments, concerns? Let us know!</p>
-										<form method="post" action="#">
-											<div class="row uniform">
-												<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
-												<div class="6u 12u(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
-											</div>
-											<div class="row uniform">
-												<div class="12u"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-											</div>
-											<div class="row uniform">
-												<div class="12u"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
-											</div>
-											<div class="row uniform">
-												<div class="12u">
-													<ul class="actions">
-														<li><input type="submit" class="special" value="Send Message" /></li>
-														<li><input type="reset" value="Reset Form" /></li>
-													</ul>
-												</div>
-											</div>
-										</form>
-									</div>
+									<%= render 'messages/message'%>
 								</section>
 							<% end %>
 					</div>
-
 				<!-- Footer -->
 					<section id="footer">
 						<div class="container">
@@ -241,6 +158,12 @@
 							</ul>
 						</div>
 					</section>
-			</div>
 
+					<div id="titleBar">
+						<a href="#header" class="toggle"></a>
+						<span class="title">
+							<a href="#">Task Dragon </a>
+						</span>
+					</div>
+			</div>
 	</body>

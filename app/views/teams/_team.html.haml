@@ -1,15 +1,17 @@
-- if @teams.nil? 
-    %h4 No results found
-- else 
-    %table
+- if @teams.nil?
+    %h4{:class => "results"}  
+    - if flash[:notice]
+        %p.flash-notice= flash[:notice]
+
+- else
+    %table{:class => "results"}
         %thead
-            %tr 
+            %tr
             %th
             %th
         %tbody
-            - @teams.each do |team| 
+            - @teams.each do |team|
                 - if team.name != 'TaskDragon'
-                    %tr 
+                    %tr
                     %td= team.name
                     %td= link_to 'Make this my team', user_path(current_user, :new_team_id => team.id), :method => 'put'
-                 

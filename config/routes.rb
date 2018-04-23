@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'signout' => 'sessions#destroy', as: 'signout'
 
   get 'home/show'
-
+#get 'messages/new' => 'feedbacks#new', as: :new
+#get 'messages/create' => 'feedbacks#create', as: :create
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "/pages/:page" => "pages#show"
@@ -19,12 +20,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sessions, only: [:create, :destroy]
-  
-  resources :users 
-    
-  
 
+  resources :sessions, only: [:create, :destroy]
+
+  resources :users
+resources :messages
   #root :to => redirect('/teams')
   root :to => redirect('/pages/home')
 end

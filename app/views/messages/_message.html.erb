@@ -1,0 +1,18 @@
+
+<%= form_tag(messages_path,:method => "post", id: "message") do %>
+    <h1>Name</h1>
+    <%= text_field_tag :name%>
+    <br>
+    <h1>Email</h1>
+        <%= text_field_tag :email %>
+        <br>
+        <h1>Message</h1>
+    <%= text_field_tag :body%>
+<br>
+    <%= submit_tag "Send Message!", :name => nil %>
+	<% end %>
+<% if flash[:error] %>
+  <p class="flash-notice"><%= flash[:error] %></p>
+<% elsif flash[:success]%>
+  <p class="flash-notice"><%= flash[:success] %></p>
+<% end %>

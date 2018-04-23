@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bootstrap', '~> 4.0.0'
+gem 'mailgun'
+gem 'figaro'
 gem 'jquery-rails'
 #use Haml for templates
 gem 'haml'
@@ -20,7 +23,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+# gem 'bootstrap-sass', '3.2.0.2'
 # Gem used to authenticate with Google
 gem "omniauth-google-oauth2", "~> 0.5.3"
 # Use CoffeeScript for .coffee assets and views
