@@ -2,14 +2,22 @@ require 'securerandom'
 
 class TeamsController < ApplicationController
     def index
-        @teams = if params[:search]
-          Team.where('name LIKE ?', "%#{params[:search]}%")
+        if params[:search] 
+            if params[:search] == ""
+                flash[:notice] = "Search cannot be blank."
+            elsif Team.where('name LIKE ?', "%#{params[:search]}%").blank?
+                            flash[:notice] = "No teams found."
+                
+            else
+             @teams = Team.where('name LIKE ?', "%#{params[:search]}%")
+              
+
           #redirect_to teams_path(:team_id => current_team_id)
-        else
           #Team.all
           #wait for search
         end
     end
+end
 
 
     def show
@@ -23,6 +31,8 @@ class TeamsController < ApplicationController
 
     def create
         # raise @params.inspect
+        
+
         @team = Team.create!(team_params)
         @team.update_attributes(:user_ids => [current_user.id])
         @team.update_attributes(:confirmation_code => SecureRandom.hex)
@@ -30,7 +40,8 @@ class TeamsController < ApplicationController
         current_user.update_attributes(:team => @team)
         current_user.save!
         redirect_to team_dragons_path(:team_id => current_team_id)
-    end
+
+end
 
     def edit
         @team = Team.find(params[:id])
