@@ -21,9 +21,9 @@ class Dragon < ActiveRecord::Base
     dragon = current_user.team.dragon
     xp = dragon.xp + points
     level = dragon.level
-    if level > 0 && xp < levels[level]
+    if level > 0 && xp <= levels[level - 1] && points < 0
       level -= 1
-    elsif level < levels.length && xp >= levels[level]
+    elsif level < levels.length && xp >= levels[level] && points > 0
       level += 1
     end 
     dragon.update_attributes!(:xp => xp)
