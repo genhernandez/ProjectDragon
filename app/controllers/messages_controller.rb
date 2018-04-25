@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
         @message = Message.new message_params
         if @message.valid?
             MessageMailer.contact(@message).deliver_now
-            redirect_to new_message_path
+            redirect_to team_tasks_path(:team_id => current_team_id)
             flash[:success] = "We have received your message and will be in touch soon!"
                   
         else
@@ -17,6 +17,6 @@ class MessagesController < ApplicationController
 private
 def message_params
     # params.require(:message).permit(:name, :email, :body)
-     params.permit(:message,:name, :email, :body)
+    params.permit(:message,:name, :email, :body)
   end
 end
