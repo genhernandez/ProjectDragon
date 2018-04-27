@@ -1,5 +1,8 @@
 - if @teams.nil?
-    %h4{:class => "results"}  No results found
+    %h4{:class => "results"}  
+    - if flash[:notice]
+        %p.flash-notice= flash[:notice]
+
 - else
     %table{:class => "results"}
         %thead

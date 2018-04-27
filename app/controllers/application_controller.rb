@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :image_urls
   def image_urls
-    @image_urls = ['/img/dragons/green_dragon.gif', '/img/dragons/blue_dragon.gif', '/img/dragons/purple_dragon.gif', '/img/dragons/red_dragon.gif', '/img/dragons/yellow_dragon.gif']
+    #https://www.freepik.com/free-vector/fairytale-set-flat-design_849823.htm#term=dragon&page=1&position=6
+   @image_urls = [['/img/dragons/green_egg.png', '/img/dragons/blue_egg.png', '/img/dragons/purple_egg.png', '/img/dragons/red_egg.png', '/img/dragons/yellow_egg.png'],['/img/dragons/green_dragon_still.png', '/img/dragons/blue_dragon_still.png', '/img/dragons/purple_dragon_still.png', '/img/dragons/red_dragon_still.png', '/img/dragons/yellow_dragon_still.png'], ['/img/dragons/green_big_dragon.png', '/img/dragons/blue_big_dragon.png', '/img/dragons/purple_big_dragon.png', '/img/dragons/red_big_dragon.png', '/img/dragons/yellow_big_dragon.png']]
   end
 end
