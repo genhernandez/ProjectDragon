@@ -19,12 +19,11 @@ Rails.application.routes.draw do
       post 'level_up', on: :member
     end
   end
-
-
   resources :sessions, only: [:create, :destroy]
-
-  resources :users
-resources :messages
+  resources :users do
+    post 'join', on: :member
+  end
+  resources :messages
   #root :to => redirect('/teams')
   root :to => redirect('/pages/home')
 end

@@ -1,0 +1,28 @@
+<div class="modal fade confirmation-modal" id="confirmation-modal"></div>
+<% if @teams.nil? %>
+  <h4 class="results"></h4>
+<% else %>
+  <table class="results">
+    <thead>
+      <tr></tr>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody>
+      <% @teams.each do |team| %>
+        <% if team.name != 'TaskDragon' %>
+          <tr></tr>
+          <td>
+            <%= team.name %>
+          </td>
+          <td>
+              <%= text_field_tag :join, params[:new_team_id], placeholder: "Enter confirmation code to join" %>
+              <%= submit_tag "Make this my team", :new_team_id => nil %>
+            <!-- <%= link_to 'Make this my team', join_user_path(current_user, :new_team_id => team.id), remote: true, :class => 'button new_button', :method => :join %> -->
+            <!-- <%= link_to 'Make this my team', user_path(current_user, :new_team_id => team.id), :method => 'put' %> -->
+          </td>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
