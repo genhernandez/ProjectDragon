@@ -11,6 +11,4 @@ require 'mailgun'
                       :text => message.body}
     mg_client.send_message ENV['cs170-mahamilton.c9users.io'], message_params
   end 
-
 end 
-
