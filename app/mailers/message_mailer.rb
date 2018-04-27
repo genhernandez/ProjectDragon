@@ -10,8 +10,7 @@ require 'mailgun'
                       :subject => 'Contact Form',
                       :text => message.body}
     mg_client.send_message ENV['cs170-mahamilton.c9users.io'], message_params
-# send
-end 
+  end 
 
 end 
 
