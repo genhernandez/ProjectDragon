@@ -17,7 +17,7 @@ class TasksController < ApplicationController
         @task = current_user.team.tasks.build
     end
 
-     def create
+    def create
         # raise @params.inspect
         @task = Task.new(task_params)
         # respond_to do |format|
@@ -36,9 +36,7 @@ class TasksController < ApplicationController
             redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
             flash[:notice] = "Task can't be created without a title."
         end
-        #raise @params.inspect
-
-     end
+    end
 
     def edit
         @task = Task.find params[:id]
@@ -83,8 +81,9 @@ class TasksController < ApplicationController
         end
         redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
     end
-end
+
     private
     def task_params
- params.require(:task).permit(:title, :priority, :description, :complete, :team, :timestamps, :due).merge(team: current_user.team)
+        params.require(:task).permit(:title, :priority, :description, :due).merge(team: current_user.team)
     end
+end
