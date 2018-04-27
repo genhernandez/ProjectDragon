@@ -13,6 +13,7 @@ class Team < ActiveRecord::Base
     has_many :tasks
     has_one :dragon
     def self.search(search)
-  where("name LIKE ?","%#{search}%") 
-end
+      where("name LIKE ?","%#{search}%")
+    end
+    validates :name, :presence => true
 end

@@ -26,23 +26,23 @@ end
 
     def create
         # raise @params.inspect
-        @team = Team.create!(team_params)
+        @team = Team.new(team_params)
         @team.update_attributes(:user_ids => [current_user.id])
         @team.update_attributes(:confirmation_code => SecureRandom.hex)
-        if @team.save!
+        if @team.save
           current_user.update_attributes(:team => @team)
           current_user.save!
           redirect_to team_dragons_path(:team_id => current_team_id)
         else
-          redirect_to teams_path(:id => current_team_id, :anchor => 'list')
+          redirect_to teams_path(:id => current_team_id)
           flash[:notice] = "Team can't be created without a name."
         end
       end
 
     def edit
         @team = Team.find(params[:id])
-
     end
+
     def update
     end
 
