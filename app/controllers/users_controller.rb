@@ -24,6 +24,14 @@ class UsersController < ApplicationController
         redirect_to root_path
     end
     
+    #SOMETHING NEW
+    def delete_confirmation
+        respond_to do |format|
+            format.html
+            format.js
+        end
+    end
+    
     def edit
         @user = User.find params[:id]
     end

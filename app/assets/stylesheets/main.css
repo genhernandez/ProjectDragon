@@ -2599,6 +2599,7 @@ th.hilite {
 			-ms-flex-grow: 1;
 			flex-grow: 1;
 		}
+		
 
 			#header > nav ul {
 				list-style: none;
@@ -2606,10 +2607,13 @@ th.hilite {
 				padding: 0;
 			}
 
+				
+
 				#header > nav ul li {
 					border-top: solid 2px #5ccfb0;
 					display: block;
 					padding: 0;
+			
 				}
 
 					#header > nav ul li a {
@@ -2623,7 +2627,8 @@ th.hilite {
 						padding: 0.85em 0;
 						text-decoration: none;
 					}
-
+					
+					
 						#header > nav ul li a.active {
 							background: #fff;
 							color: #4acaa8 !important;
