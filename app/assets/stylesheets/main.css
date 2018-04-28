@@ -1634,7 +1634,7 @@ th.hilite {
 		}
 
 	strong, b {
-		color: #777;
+		color: #white;
 		font-weight: 700;
 	}
 
@@ -2517,7 +2517,7 @@ th.hilite {
 		-webkit-justify-content: space-between;
 		-ms-justify-content: space-between;
 		justify-content: space-between;
-		background: #4acaa8;
+		background: linear-gradient(to right, rgba(74,202,169, 1), rgba(121,74,202,0.6));
 		color: #d1f1e9;
 		height: 100%;
 		overflow-y: auto;
@@ -2564,7 +2564,7 @@ th.hilite {
 
 			#header > header h1 {
 				font-size: 1.75em;
-				margin: 0;
+				margin: 1.61em 0em 0em 0em;
 			}
 
 			#header > header p {
@@ -2606,7 +2606,7 @@ th.hilite {
 			}
 
 				#header > nav ul li {
-					border-top: solid 2px #5ccfb0;
+					/* border-top: solid 2px #5ccfb0; */
 					display: block;
 					padding: 0;
 				}
@@ -2625,11 +2625,15 @@ th.hilite {
 
 						#header > nav ul li a.active {
 							background: #fff;
-							color: #4acaa8 !important;
+							color: #B5446E !important;
+							font-weight:bold;
+							margin-bottom: 0.5em;
+							border-top: solid 6px #f4f4f4;
+
 						}
 
 					#header > nav ul li:first-child {
-						border-top: 0;
+						/* border-top: 0; */
 					}
 
 /* Wrapper */
@@ -2656,7 +2660,11 @@ th.hilite {
 /* One */
 
 	#one:before {
-		background-image: url("/img/banner.jpg");
+		background: linear-gradient(to right, rgba(121,74,202,0.6), rgb(74,202,168));
+
+		/*background-color: rgba(121, 74, 202, 0.6);
+		 box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+		/* background-image: url("/img/banner.jpg"); */
 		background-position: top right;
 		background-repeat: no-repeat;
 		background-size: cover;

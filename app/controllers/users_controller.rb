@@ -23,7 +23,10 @@ class UsersController < ApplicationController
         @user.destroy
         redirect_to root_path
     end
-    
+    def join
+      p "confirmation code: "
+      p params[:new_team_id]
+    end
     def edit
         @user = User.find params[:id]
     end
