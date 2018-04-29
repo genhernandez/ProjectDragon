@@ -2,6 +2,9 @@
 <% if @teams.nil? %>
   <h4 class="results"></h4>
 <% else %>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
   <table class="results">
     <thead>
       <tr></tr>
@@ -11,16 +14,16 @@
     <tbody>
       <% @teams.each do |team| %>
         <% if team.name != 'TaskDragon' %>
-          <tr></tr>
-          <td>
-            <%= team.name %>
-          </td>
-          <td>
-              <%= text_field_tag :join, params[:new_team_id], placeholder: "Enter confirmation code to join" %>
-              <%= submit_tag "Make this my team", :new_team_id => nil %>
-            <!-- <%= link_to 'Make this my team', join_user_path(current_user, :new_team_id => team.id), remote: true, :class => 'button new_button', :method => :join %> -->
-            <!-- <%= link_to 'Make this my team', user_path(current_user, :new_team_id => team.id), :method => 'put' %> -->
-          </td>
+          <%= form_tag join_user_path(current_user, :new_team_id => team.id), :method => :post do %>
+            <tr></tr>
+            <td>
+              <%= team.name %>
+            </td>
+            <td>
+              <%= text_field :user, params[:new_team_id], placeholder: "Enter confirmation code to join" %>
+              <%= submit_tag "Make this my team", :new_team_id => team.id %>
+            </td>
+          <% end %>
         <% end %>
       <% end %>
     </tbody>
