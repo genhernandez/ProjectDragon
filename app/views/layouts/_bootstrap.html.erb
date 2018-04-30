@@ -121,7 +121,7 @@
 							<% elsif current_user && Team.find(current_team_id).name == "TaskDragon" %>
 							<section id="one">
 							</section>
-							<section id="team" style="border-bottom: solid 6px #f4f4f4;">
+							<section id="team">
 								<div class="container">
 									<%= render 'teams/new' %>
 									<%= render 'teams/search' %>
@@ -129,7 +129,7 @@
 								</div>
 							</section>
 							<br><br>
-							<section id="list">
+							<section id="list" style="border-bottom: solid 6px #f4f4f4;">
 								<div class="container">
 									<h1 class="create_team"> Create a team to view tasks. </h1>
 								</div>
