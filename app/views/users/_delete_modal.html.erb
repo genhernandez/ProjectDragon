@@ -4,17 +4,14 @@
 		    <div class="modal-content">
           <div class="modal-container">
             <div class="modal-header">
-              <h1 class="modal-title" id="exampleModalLabel">Delete Account</h1>
+              <h1 class="modal-title" id="exampleModalLabel">Delete Account?</h1>
             </div>
-		        <div class="modal-body">
-		            Are you sure?
+		        <div class="modal-footer">
+              <%= link_to "Yes", user_path(current_user), :class => :button, :method => :delete %>
+              <a class="button close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">Cancel</span>
+              </a>
 		        </div>
-		      <div class="modal-footer">
-            <%= link_to "Yes", user_path(current_user), :class => :button, :method => :delete %>
-            <a class="button close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">Cancel</span>
-            </a>
-		      </div>
         </div>
 		    </div>
 		  </div>
