@@ -1,6 +1,7 @@
 = form_tag team_task_path(:team_id => current_team_id, :id => @task), :method => :put do
 
-    =  render "form"
+    = render "form"
 
+    = hidden_field_tag(:sort_by, params[:sort_by])
     = submit_tag 'Save Changes'
-    = link_to 'Cancel', team_tasks_path(:id => current_team_id, :anchor => 'list'), :class => :button
+    = link_to 'Cancel', team_tasks_path(:id => current_team_id, :sort_by => params[:sort_by], :anchor => 'list'), :class => :button

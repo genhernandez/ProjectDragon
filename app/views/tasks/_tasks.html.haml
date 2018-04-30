@@ -1,4 +1,4 @@
-= link_to 'New task', new_team_task_path(current_team_id), remote: true, :class => 'button new_button'
+= link_to 'New task', new_team_task_path(current_team_id, :sort_by => params["sort_by"]), remote: true, :class => 'button new_button'
 
 -#https://iridakos.com/tutorials/2013/12/07/creating-a-simple-todo-part-1
 #modal.modal.fade
@@ -8,20 +8,20 @@
         %tr
             %th
             %th{ :class => ("hilite" if params["sort_by"] == "title")}
-                = link_to "Title", team_tasks_path(:sort_by => "title"), :class => 'no_underline'
+                = link_to "Title", team_tasks_path(:sort_by => "title", :anchor => 'list'), :class => 'no_underline'
             %th{ :class => ("hilite" if params["sort_by"] == "due")}
-                = link_to "Due", team_tasks_path(:sort_by => "due")
+                = link_to "Due", team_tasks_path(:sort_by => "due", :anchor => 'list')
             %th{ :class => ("hilite" if params["sort_by"] == "priority")}
-                = link_to "Priority", team_tasks_path(:sort_by => "priority")
+                = link_to "Priority", team_tasks_path(:sort_by => "priority", :anchor => 'list')
             %th Description
             %th
     %tbody
         -@tasks.each do |task|
             %tr{:class => ("complete" if task.complete)}
-                %td= link_to task.complete ? 'Done' : 'Complete', complete_team_task_path(current_team_id, task), :class => 'button link table_button', :method => :complete
+                %td= link_to task.complete ? 'Done' : 'Complete', complete_team_task_path(current_team_id, task, :sort_by => params["sort_by"]), :class => 'button link table_button', :method => :complete
                 %td= task.title
                 %td= task.due.strftime("%b %d, %Y")
                 %td= task.priority
                 %td= task.description
-                %td= link_to 'Edit', edit_team_task_path(current_team_id, task), remote: true, :class => "button link table_button"
-                %td= link_to 'Delete', team_task_path(current_team_id, task), :class => "button link table_button", :method => :delete
+                %td= link_to 'Edit', edit_team_task_path(current_team_id, task, :sort_by => params["sort_by"]), remote: true, :class => "button link table_button"
+                %td= link_to 'Delete', team_task_path(current_team_id, task, :sort_by => params["sort_by"]), :class => "button link table_button", :method => :delete

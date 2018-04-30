@@ -18,12 +18,14 @@ class TasksController < ApplicationController
 
     def create
         @task = Task.new(task_params)
-        if @task.save
-            redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
-        else
-            redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
+        if !@task.save
             flash[:notice] = "Task can't be created without a title."
         end
+        redirect_to_tasks(params[:sort_by])
+    end
+
+    def redirect_to_tasks(sort)
+        redirect_to team_tasks_path(:id => current_team_id, :sort_by => sort, :anchor => 'list')
     end
 
     def edit
@@ -32,17 +34,16 @@ class TasksController < ApplicationController
 
     def update
         @task = Task.find params[:id]
-        if @task.update_attributes(task_params)
-            redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
-        else
-            redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
+        if !@task.update_attributes(task_params)
+            flash[:notice] = "Task must have a title."
         end
+        redirect_to_tasks(params[:sort_by])
     end
 
     def destroy
         @task = Task.find(params[:id])
         @task.destroy
-        redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
+        redirect_to_tasks(params[:sort_by])
     end
 
     def complete
@@ -66,7 +67,7 @@ class TasksController < ApplicationController
         else
             dragon.level_up(current_user, -points, image_urls)
         end
-        redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
+        redirect_to_tasks(params[:sort_by])
     end
 
     private
