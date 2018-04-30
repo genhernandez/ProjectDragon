@@ -27,6 +27,7 @@
 		        Are you sure?
 		      </div> 
 		      <div class="modal-footer">
+		        <button type="button" class="cancel" data-dismiss="modal" aria>Cancel</button>
 		        <%= link_to "Yes", user_path(current_user), :class => :button, :method => :delete %>
 		      </div>
 		    </div>
@@ -45,6 +46,7 @@ var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+// var cancel = document.getElementByClassName("cancel");
 
 // When the user clicks on the button, open the modal 
 btn.onclick = function() {
@@ -55,6 +57,11 @@ btn.onclick = function() {
 span.onclick = function() {
     modal.style.display = "none";
 }
+
+// cancel.onclick = function() {
+//     modal.style.display = "none";
+// }
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {

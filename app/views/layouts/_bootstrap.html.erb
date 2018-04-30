@@ -15,7 +15,6 @@
 						<%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
 						<% end %>
 					</div>
-					<!-- <p><a href="#one" class="active">Login/Signup</a></p> -->
 				</header>
 				<nav id="nav">
 					<% if current_user && current_user.team.name != "TaskDragon" %>
@@ -28,15 +27,7 @@
 						  Delete Account
 						</button>
 					</ul>
-					<div class = "container">
-						<%= render 'users/delete_modal'%>	
-					</div>
-					<!--<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
-						
-					<!--</div>-->
-					<!--<div class = "container">-->
-					<!--	-->
-					<!--</div>-->
+
 					<% elsif current_user && Team.find(current_team_id).name == "TaskDragon" %>
 					<ul>
 						<li><a href="#team" class="active">Team</a></li>
@@ -47,17 +38,7 @@
 						<button type="button" id="myBtn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
 						  Delete Account
 						</button>
-
 					</ul>
-	
-					<div class = "container">
-						<%= render 'users/delete_modal'%>	
-					</div>
-
-					<!--<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
-						
-					<!--</div>-->
-
 					<% else %>
 					<ul>
 						<li><a href="#one" class="active">About</a></li>
@@ -69,6 +50,9 @@
 			</section>
 		<!-- Wrapper -->
 			<div id="wrapper">
+					<div class = "container">
+						<%= render 'users/delete_modal'%>	
+					</div>
 				<!-- Main -->
 					<div id="main">
 						
