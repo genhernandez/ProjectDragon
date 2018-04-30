@@ -7,7 +7,7 @@
 						</span> -->
 					<div>
 						<% if current_user %>
-						<h1 id="logo logged_in"><%= current_user.name %></h1>
+						<h1 class="loggedIn" id="logo logged_in"><%= current_user.name %></h1>
 						<p><span>Team <strong><%= current_user.team.name %></strong>!</span></p>
 						<span><%= link_to "Sign out", signout_path, id: "sign_out"%></span>
 						<% else %>
