@@ -1,3 +1,23 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *= bootstrap-sprockets
+ *= bootstrap
+
+
+ */
+ /* @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import 'main'; */
+
 
 @import url("font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400");
@@ -7,43 +27,6 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-
-
-.modal-fade {
-	display: none; 
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-.modal-content {
-	background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
-
-.btn {			/* for the buttons*/	
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-
-#logged_in {
-	margin: 2.74em 0em 0em 0em;
-}
-#dragon {
-	border-top: none;
-}
 
 #code {
 	display: none;
@@ -131,8 +114,6 @@ th.hilite {
 /* Box Model */
 
 	*, *:before, *:after {
-		-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 	}
 
@@ -312,15 +293,11 @@ th.hilite {
 
 	.row {
 		border-bottom: solid 1px transparent;
-		-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 	}
 
 	.row > * {
 		float: left;
-		-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 	}
 
@@ -1656,9 +1633,6 @@ th.hilite {
 	}
 
 	a {
-		-moz-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-		-webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-		-ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		border-bottom: none;
 		color: inherit;
@@ -1829,8 +1803,6 @@ th.hilite {
 			font-weight: 700;
 			margin-top: -0.75em;
 		}
-	
-	
 
 /* Form */
 
@@ -2368,9 +2340,6 @@ th.hilite {
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
-		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		background-color: #989898;
 		border-radius: 5px;
@@ -2545,15 +2514,11 @@ th.hilite {
 
 	#header {
 		display: -moz-flex;
-		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
 		-moz-flex-direction: column;
-		-webkit-flex-direction: column;
-		-ms-flex-direction: column;
 		flex-direction: column;
 		-moz-justify-content: space-between;
-		-webkit-justify-content: space-between;
 		-ms-justify-content: space-between;
 		justify-content: space-between;
 		background: linear-gradient(to right, rgba(74,202,169, 1), rgba(121,74,202,0.6));
@@ -2588,8 +2553,6 @@ th.hilite {
 			}
 
 		#header > header {
-			-moz-flex-shrink: 0;
-			-webkit-flex-shrink: 0;
 			-ms-flex-shrink: 0;
 			flex-shrink: 0;
 			padding: 3em;
@@ -2603,7 +2566,7 @@ th.hilite {
 
 			#header > header h1 {
 				font-size: 1.75em;
-				margin: 4.31em 0em 0em 0em;
+				margin: 4.11em 0em 0em 0em;
 			}
 
 			#header > header p {
@@ -2613,8 +2576,6 @@ th.hilite {
 			}
 
 		#header > footer {
-			-moz-flex-shrink: 0;
-			-webkit-flex-shrink: 0;
 			-ms-flex-shrink: 0;
 			flex-shrink: 0;
 			bottom: 0;
@@ -2633,11 +2594,9 @@ th.hilite {
 
 		#header > nav {
 			-moz-flex-grow: 1;
-			-webkit-flex-grow: 1;
 			-ms-flex-grow: 1;
 			flex-grow: 1;
 		}
-		
 
 			#header > nav ul {
 				list-style: none;
@@ -2645,19 +2604,13 @@ th.hilite {
 				padding: 0;
 			}
 
-				
-
 				#header > nav ul li {
 					/* border-top: solid 2px #5ccfb0; */
 					display: block;
 					padding: 0;
-			
 				}
 
 					#header > nav ul li a {
-						-moz-transition: none;
-						-webkit-transition: none;
-						-ms-transition: none;
 						transition: none;
 						border: 0;
 						color: #ffffff !important;
@@ -2665,8 +2618,7 @@ th.hilite {
 						padding: 0.85em 0;
 						text-decoration: none;
 					}
-					
-					
+
 						#header > nav ul li a.active {
 							background: #fff;
 							color: #B5446E !important;
@@ -2844,14 +2796,11 @@ th.hilite {
 		/* Header */
 
 			#header {
-				-moz-backface-visibility: hidden;
 				-webkit-backface-visibility: hidden;
-				-ms-backface-visibility: hidden;
 				backface-visibility: hidden;
-				-moz-transition: -moz-transform 0.5s ease;
-				-webkit-transition: -webkit-transform 0.5s ease;
-				-ms-transition: -ms-transform 0.5s ease;
+				transition: -webkit-transform 0.5s ease;
 				transition: transform 0.5s ease;
+				transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 				display: block;
 				height: 100%;
 				overflow-y: auto;
@@ -2859,9 +2808,7 @@ th.hilite {
 				top: 0;
 				width: 23em;
 				z-index: 10002;
-				-moz-transform: translateX(23em);
 				-webkit-transform: translateX(23em);
-				-ms-transform: translateX(23em);
 				transform: translateX(23em);
 				right: 0;
 			}
@@ -2878,14 +2825,11 @@ th.hilite {
 		/* Wrapper */
 
 			#wrapper {
-				-moz-backface-visibility: hidden;
 				-webkit-backface-visibility: hidden;
-				-ms-backface-visibility: hidden;
 				backface-visibility: hidden;
-				-moz-transition: -moz-transform 0.5s ease;
-				-webkit-transition: -webkit-transform 0.5s ease;
-				-ms-transition: -ms-transform 0.5s ease;
+				transition: -webkit-transform 0.5s ease;
 				transition: transform 0.5s ease;
+				transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 				padding: 44px 0 1px 0;
 			}
 
@@ -2898,14 +2842,11 @@ th.hilite {
 		/* Off-Canvas Navigation */
 
 			#titleBar {
-				-moz-backface-visibility: hidden;
 				-webkit-backface-visibility: hidden;
-				-ms-backface-visibility: hidden;
 				backface-visibility: hidden;
-				-moz-transition: -moz-transform 0.5s ease;
-				-webkit-transition: -webkit-transform 0.5s ease;
-				-ms-transition: -ms-transform 0.5s ease;
+				transition: -webkit-transform 0.5s ease;
 				transition: transform 0.5s ease;
+				transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 				display: block;
 				height: 44px;
 				left: 0;
@@ -2970,16 +2911,12 @@ th.hilite {
 					}
 
 			body.header-visible #wrapper, body.header-visible #titleBar {
-				-moz-transform: translateX(-23em);
 				-webkit-transform: translateX(-23em);
-				-ms-transform: translateX(-23em);
 				transform: translateX(-23em);
 			}
 
 			body.header-visible #header {
-				-moz-transform: translateX(0);
 				-webkit-transform: translateX(0);
-				-ms-transform: translateX(0);
 				transform: translateX(0);
 			}
 
@@ -3053,9 +2990,7 @@ th.hilite {
 
 			#header {
 				width: 17em;
-				-moz-transform: translateX(17em);
 				-webkit-transform: translateX(17em);
-				-ms-transform: translateX(17em);
 				transform: translateX(17em);
 				right: 0;
 			}
@@ -3124,9 +3059,7 @@ th.hilite {
 				}
 
 			body.header-visible #wrapper, body.header-visible #titleBar {
-				-moz-transform: translateX(-17em);
 				-webkit-transform: translateX(-17em);
-				-ms-transform: translateX(-17em);
 				transform: translateX(-17em);
 			}
 

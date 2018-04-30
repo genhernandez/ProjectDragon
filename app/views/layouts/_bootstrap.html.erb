@@ -2,12 +2,12 @@
 		<!-- Header -->
 			<section id="header">
 				<header>
-					<span class="image avatar">
+					<!-- <span class="image avatar">
 						<img src="/img/avatar.jpg" alt="" />
-						</span>
+						</span> -->
 					<div>
 						<% if current_user %>
-						<h1 id="logo"><%= current_user.name %></h1>
+						<h1 id="logo logged_in"><%= current_user.name %></h1>
 						<p><span>Team <strong><%= current_user.team.name %></strong>!</span></p>
 						<span><%= link_to "Sign out", signout_path, id: "sign_out"%></span>
 						<% else %>
@@ -89,14 +89,6 @@
 										<% end %>
 										<%=render 'tasks/tasks'%>
 									</div>
-								</section>
-								<!-- Add tasks -->
-							
-								<section id="dragon">
-								<div class = "container">
-									<%= render 'dragons/dragons'%>
-								</div>
-								<br><br>
 								</section>
 								<section id="team">
 									<div class="container">

@@ -5,8 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# gem 'activemodel', '~> 5.1.6'
+# gem 'protected_attributes', '~> 1.1.4'
 gem 'bootstrap', '~> 4.0.0'
-gem 'mailgun'
+gem 'mailgun-ruby', '~>1.1.6'
 gem 'figaro'
 gem 'jquery-rails'
 #use Haml for templates

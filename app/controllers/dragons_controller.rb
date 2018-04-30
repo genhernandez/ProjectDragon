@@ -30,6 +30,6 @@ class DragonsController < ApplicationController
 
     private
     def dragon_params
-        params.require(:dragon).permit(:picture_path, :name, :id, :xp, :level, :color).merge(team: Team.find(current_team_id))
+        params.require(:dragon).permit(:picture_path, :name, :color).merge(team: Team.find(current_team_id))
     end
 end

@@ -1,0 +1,31 @@
+<div class="modal fade confirmation-modal" id="confirmation-modal"></div>
+<% if @teams.nil? %>
+  <h4 class="results"></h4>
+<% else %>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+  <table class="results">
+    <thead>
+      <tr></tr>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody>
+      <% @teams.each do |team| %>
+        <% if team.name != 'TaskDragon' %>
+          <%= form_tag join_user_path(current_user, :new_team_id => team.id), :method => :post do %>
+            <tr></tr>
+            <td>
+              <%= team.name %>
+            </td>
+            <td>
+              <%= text_field :user, params[:new_team_id], placeholder: "Enter confirmation code to join" %>
+              <%= submit_tag "Make this my team", :new_team_id => team.id %>
+            </td>
+          <% end %>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

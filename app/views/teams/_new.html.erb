@@ -1,0 +1,8 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+<%= form_tag teams_path, :method => :post do %>
+  <%= label :team, :name, 'Name' %>
+  <%= text_field :team, :name, placeholder: 'Enter Team Name Here' %>
+  <%= submit_tag 'Save Changes' %>
+<% end %>
