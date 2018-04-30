@@ -20,7 +20,7 @@
               <%= team.name %>
             </td>
             <td>
-              <%= text_field :user, params[:new_team_id], placeholder: "Enter confirmation code to join" %>
+              <%= text_field :user, params[:new_team_id], placeholder: "Enter confirmation code to join", class: 'confirm_field' %>
               <%= submit_tag "Make this my team", :new_team_id => team.id %>
             </td>
           <% end %>
