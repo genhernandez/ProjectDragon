@@ -58,6 +58,10 @@
 	margin-left: 1.125em;
 
 }
+
+#yes_btn {
+	background-color:#dc3545;
+}
 #dragon {
 	border-top: none !important;
 }
