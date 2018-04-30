@@ -8,9 +8,8 @@ class TasksController < ApplicationController
     end
 
     def show
-        id = params[:id] # retrieve movie ID from URI route
+        id = params[:id]
         @task = Task.find(id)
-        # will render app/views/movies/show.html.haml by default
     end
 
     def new
@@ -18,24 +17,15 @@ class TasksController < ApplicationController
     end
 
     def create
-        # raise @params.inspect
         @task = Task.new(task_params)
-        # respond_to do |format|
-        #     if @task.save
-        #       format.html { redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list'), notice: 'Task was successfully created.' }
-        #       format.json
-        #     else
-        #       format.html { render action: '_new' }
-        #       format.json { render json: @task.errors, status: :unprocessable_entity }
-        #     end
-        # end
-        if @task.save
-            redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
-        else
-            #TODO: reload new modal
-            redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
+        if !@task.save
             flash[:notice] = "Task can't be created without a title."
         end
+        redirect_to_tasks(params[:sort_by])
+    end
+
+    def redirect_to_tasks(sort)
+        redirect_to team_tasks_path(:id => current_team_id, :sort_by => sort, :anchor => 'list')
     end
 
     def edit
@@ -44,18 +34,16 @@ class TasksController < ApplicationController
 
     def update
         @task = Task.find params[:id]
-        if @task.update_attributes(task_params)
-            redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
-        else
-            redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
-            #TODO: reload edit modal
+        if !@task.update_attributes(task_params)
+            flash[:notice] = "Task must have a title."
         end
+        redirect_to_tasks(params[:sort_by])
     end
 
     def destroy
         @task = Task.find(params[:id])
         @task.destroy
-        redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
+        redirect_to_tasks(params[:sort_by])
     end
 
     def complete
@@ -79,7 +67,7 @@ class TasksController < ApplicationController
         else
             dragon.level_up(current_user, -points, image_urls)
         end
-        redirect_to team_tasks_path(:id => current_team_id, :anchor => 'list')
+        redirect_to_tasks(params[:sort_by])
     end
 
     private
