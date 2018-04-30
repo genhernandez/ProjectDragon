@@ -121,7 +121,7 @@
 							<% elsif current_user && Team.find(current_team_id).name == "TaskDragon" %>
 							<section id="one">
 							</section>
-							<section id="team">
+							<section id="team" style="border-bottom: solid 6px #f4f4f4;">
 								<div class="container">
 									<%= render 'teams/new' %>
 									<%= render 'teams/search' %>
@@ -131,17 +131,17 @@
 							<br><br>
 							<section id="list">
 								<div class="container">
-									<h1> Create a team to view tasks. </h1>
+									<h1 class="create_team"> Create a team to view tasks. </h1>
 								</div>
 							<!-- Add tasks -->
 								<div class="container">
-									<h1> Create a team to add tasks. </h1>
+									<h1 class="create_team"> Create a team to add tasks. </h1>
 								</div>
 							</section>
 							<br><br>
 							<section id="dragon">
 								<div class = "container">
-									<h1> Create a team to select a dragon. </h1>
+									<h1 class="create_team"> Create a team to select a dragon. </h1>
 								</div>
 							<br><br>
 								</section>

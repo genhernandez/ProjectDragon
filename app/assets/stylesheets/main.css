@@ -7,6 +7,10 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
+.create_team {
+	margin-left: 1em;
+}
 .modal-container {
 	margin: 0% 15%;
 	width: 100%;
@@ -71,7 +75,7 @@
 }
 
 .dragon_img {
-	width: 15em;
+	width: 10em;
 }
 #team_name {
 	width: 80%;
