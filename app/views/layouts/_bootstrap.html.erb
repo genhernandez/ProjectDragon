@@ -7,7 +7,7 @@
 						</span> -->
 					<div>
 						<% if current_user %>
-						<h1 id="logo logged_in"><%= current_user.name %></h1>
+						<h1 class="loggedIn" id="logged_in" style= "margin: 2.74em 0em 0em 0em !important;"><%= current_user.name %></h1>
 						<p><span>Team <strong><%= current_user.team.name %></strong>!</span></p>
 						<span><%= link_to "Sign out", signout_path, id: "sign_out"%></span>
 						<% else %>
@@ -83,8 +83,8 @@
 								<!--Four -->
 								<section id="four">
 									<div class="container">
-										<h3>Contact us</h3>
-										<p>Questions, comments, concerns? Let us know!</p>
+										<h3 class="four">Contact us</h3>
+										<p class="four_p">Questions, comments, concerns? Let us know!</p>
 										<%=render 'messages/message'%>
 									</div>
 								</section>
@@ -115,15 +115,21 @@
 								<br><br>
 							<!--Four -->
 							<section id="four">
-								<%= render 'messages/message' %>
+								<div class=container>
+									<h3 class="four">Contact us</h3>
+										<p class="four_p">Questions, comments, concerns? Let us know!</p>
+										<%= render 'messages/message'%>
+								</div>
 							</section>
 							<% elsif current_user && Team.find(current_team_id).name == "TaskDragon" %>
 							<section id="one">
 							</section>
 							<section id="team">
-								<%= render 'teams/new' %>
-								<%= render 'teams/search' %>
-								<%= render 'teams/team' %>
+								<div class="container">
+									<%= render 'teams/new' %>
+									<%= render 'teams/search' %>
+									<%= render 'teams/team' %>
+								</div>
 							</section>
 							<br><br>
 							<section id="list">
@@ -144,9 +150,11 @@
 								</section>
 							<!--Four -->
 							<section id="four">
-									<h3>Contact us</h3>
-										<p>Questions, comments, concerns? Let us know!</p>
-								<%= render 'messages/message'%>
+								<div class=container>
+									<h3 class="four">Contact us</h3>
+										<p class="four_p">Questions, comments, concerns? Let us know!</p>
+										<%= render 'messages/message'%>
+								</div>
 							</section>
 							<% else %>
 							<!-- One -->
@@ -172,7 +180,11 @@
 								</section>
 							<!-- Four -->
 								<section id="four">
-									<%= render 'messages/message'%>
+									<div class=container>
+										<h3 class="four">Contact us</h3>
+											<p class="four_p">Questions, comments, concerns? Let us know!</p>
+											<%= render 'messages/message'%>
+									</div>
 								</section>
 							<% end %>
 					</div>
