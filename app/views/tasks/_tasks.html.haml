@@ -18,7 +18,6 @@
     %tbody
         -@tasks.each do |task|
             %tr{:class => ("complete" if task.complete)}
-                -#:class => task.complete ? 'complete clickable-row' : 'clickable-row', 'data-href' => complete_team_task_path(current_team_id, task)
                 %td= link_to task.complete ? 'Done' : 'Complete', complete_team_task_path(current_team_id, task), :class => 'button link table_button', :method => :complete
                 %td= task.title
                 %td= task.due.strftime("%b %d, %Y")
@@ -26,19 +25,3 @@
                 %td= task.description
                 %td= link_to 'Edit', edit_team_task_path(current_team_id, task), remote: true, :class => "button link table_button"
                 %td= link_to 'Delete', team_task_path(current_team_id, task), :class => "button link table_button", :method => :delete
-
--# :javascript
--# //https://stackoverflow.com/questions/6330763/jquery-table-row-click-event-also-firing-when-i-click-a-link
--# //$('.clickable-row .link').click(function(e){
--# //    e.stopPropagation();
--# //});
--# $('.clickable-row').hover( function () {
--#     $(this).toggleClass('hover');
--# }).click(function() {
--#     url = $(this).data('href');
--#     console.log(url);
--#     $.ajax({
--#         type: "POST",
--#         url: url
--#     });
--# });
