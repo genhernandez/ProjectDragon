@@ -5,6 +5,7 @@ class UsersController < ApplicationController
         @user.destroy
         redirect_to root_path
     end
+    
     def update
         new_team_id= params[:new_team_id]
         @user = User.find(params[:id])
@@ -24,14 +25,7 @@ class UsersController < ApplicationController
         redirect_to root_path
     end
     
-    #SOMETHING NEW
-    def delete_confirmation
-        respond_to do |format|
-            format.html
-            format.js
-        end
-    end
-    
+
     def edit
         @user = User.find params[:id]
     end

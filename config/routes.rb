@@ -4,10 +4,6 @@ Rails.application.routes.draw do
   get 'signout' => 'sessions#destroy', as: 'signout'
 
   get 'home/show'
-
-  #SOMETHING NEW
-  get "/users/:delete_confirmation" => 'users#delete_confirmation', as: 'delete_confirmation'
-  
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "/pages/:page" => "pages#show"
@@ -27,6 +23,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
 
   resources :users
+  resources :messages
 
   #root :to => redirect('/teams')
   root :to => redirect('/pages/home')

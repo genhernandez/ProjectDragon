@@ -193,12 +193,7 @@ GEM
       tzinfo (>= 1.0.0)
     uglifier (4.1.9)
       execjs (>= 0.3.0, < 3)
-<<<<<<< Updated upstream
-    wdm (0.1.1)
     web-console (3.6.0)
-=======
-    web-console (3.5.1)
->>>>>>> Stashed changes
       actionview (>= 5.0)
       activemodel (>= 5.0)
       bindex (>= 0.4.0)

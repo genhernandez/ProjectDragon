@@ -24,8 +24,16 @@
 						<li><a href="#list">Tasks</a></li>
 						<li><a href="#team">Team</a></li>
 						<li><a href="#four">Contact</a></li>
-						<%= link_to "Delete your account", user_path(current_user), :class => :button, :method => :delete %>
+						<button type="button" id="myBtn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+						  Delete Account
+						</button>
 					</ul>
+					<!--<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+						
+					<!--</div>-->
+					<!--<div class = "container">-->
+					<!--	-->
+					<!--</div>-->
 					<% elsif current_user && Team.find(current_team_id).name == "TaskDragon" %>
 					<ul>
 						<li><a href="#team" class="active">Team</a></li>
@@ -33,11 +41,20 @@
 						<li><a href="#dragon"> Dragon</a></li>
 						<li><a href="#four">Contact</a></li>
 						<li><a href="#dragon">My Team's Dragon</a></li>
-						<%= link_to "Delete your account", user_path(current_user), :class => :button %>
+						<button type="button" id="myBtn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+						  Delete Account
+						</button>
+
 					</ul>
+	
 					<div class = "container">
-						<%= render 'users/delete_modal'%>
+						<%= render 'users/delete_modal'%>	
 					</div>
+
+					<!--<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+						
+					<!--</div>-->
+
 					<% else %>
 					<ul>
 						<li><a href="#one" class="active">About</a></li>
@@ -51,6 +68,7 @@
 			<div id="wrapper">
 				<!-- Main -->
 					<div id="main">
+						
 							<!-- All tasks -->
 							<% if current_user && current_user.team.name != "TaskDragon" && Team.find(current_team_id).dragon %>
 								<section id="one">
