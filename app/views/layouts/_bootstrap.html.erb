@@ -2,9 +2,6 @@
 		<!-- Header -->
 			<section id="header">
 				<header>
-					<!-- <span class="image avatar">
-						<img src="/img/avatar.jpg" alt="" />
-						</span> -->
 					<div>
 						<% if current_user %>
 						<h1 class="loggedIn" id="logged_in" style= "margin: 2.74em 0em 0em 0em !important;"><%= current_user.name %></h1>
@@ -23,7 +20,7 @@
 						<li><a href="#list">Tasks</a></li>
 						<li><a href="#team">Team</a></li>
 						<li><a href="#four">Contact</a></li>
-						<button type="button" id="myBtn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+						<button type="button" id="myBtn" class="button" data-toggle="modal" data-target="#exampleModal">
 						  Delete Account
 						</button>
 					</ul>
@@ -34,10 +31,9 @@
 						<li><a href="#list">Tasks</a></li>
 						<li><a href="#dragon"> Dragon</a></li>
 						<li><a href="#four">Contact</a></li>
-						<li><a href="#dragon">My Team's Dragon</a></li>
-						<button type="button" id="myBtn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+						<a id="myBtn" class="button" data-toggle="modal" data-target="#exampleModal">
 						  Delete Account
-						</button>
+						</a>
 					</ul>
 					<% else %>
 					<ul>
@@ -50,12 +46,14 @@
 			</section>
 		<!-- Wrapper -->
 			<div id="wrapper">
+				<% if current_user %>
 					<div class = "container">
-						<%= render 'users/delete_modal'%>	
+						<%= render 'users/delete_modal'%>
 					</div>
+				<% end %>
 				<!-- Main -->
 					<div id="main">
-						
+
 							<!-- All tasks -->
 							<% if current_user && current_user.team.name != "TaskDragon" && Team.find(current_team_id).dragon %>
 								<section id="one">
