@@ -106,15 +106,21 @@
 								<br><br>
 							<!--Four -->
 							<section id="four">
-								<%= render 'messages/message' %>
+								<div class=container>
+									<h3 class="four">Contact us</h3>
+										<p class="four">Questions, comments, concerns? Let us know!</p>
+										<%= render 'messages/message'%>
+								</div>
 							</section>
 							<% elsif current_user && Team.find(current_team_id).name == "TaskDragon" %>
 							<section id="one">
 							</section>
 							<section id="team">
-								<%= render 'teams/new' %>
-								<%= render 'teams/search' %>
-								<%= render 'teams/team' %>
+								<div class="container">
+									<%= render 'teams/new' %>
+									<%= render 'teams/search' %>
+									<%= render 'teams/team' %>
+								</div>
 							</section>
 							<br><br>
 							<section id="list">
@@ -135,9 +141,11 @@
 								</section>
 							<!--Four -->
 							<section id="four">
-									<h3>Contact us</h3>
-										<p>Questions, comments, concerns? Let us know!</p>
-								<%= render 'messages/message'%>
+								<div class=container>
+									<h3 class="four">Contact us</h3>
+										<p class="four">Questions, comments, concerns? Let us know!</p>
+										<%= render 'messages/message'%>
+								</div>
 							</section>
 							<% else %>
 							<!-- One -->
@@ -163,7 +171,11 @@
 								</section>
 							<!-- Four -->
 								<section id="four">
-									<%= render 'messages/message'%>
+									<div class=container>
+										<h3 class="four">Contact us</h3>
+											<p class="four">Questions, comments, concerns? Let us know!</p>
+											<%= render 'messages/message'%>
+									</div>
 								</section>
 							<% end %>
 					</div>
