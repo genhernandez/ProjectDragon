@@ -8,6 +8,12 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+#logged_in {
+	margin: 2.74em 0em 0em 0em;
+}
+#dragon {
+	border-top: none;
+}
 #code {
 	display: none;
 }
@@ -2564,7 +2570,7 @@ th.hilite {
 
 			#header > header h1 {
 				font-size: 1.75em;
-				margin: 4.11em 0em 0em 0em;
+				margin: 4.31em 0em 0em 0em;
 			}
 
 			#header > header p {
