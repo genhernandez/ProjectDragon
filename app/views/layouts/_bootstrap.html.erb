@@ -20,20 +20,20 @@
 						<li><a href="#list">Tasks</a></li>
 						<li><a href="#team">Team</a></li>
 						<li><a href="#four">Contact</a></li>
-						<a id="myBtn" class="button" data-toggle="modal" data-target="#exampleModal">
-						  Delete Account
-						</a>
 					</ul>
+					<p id="myBtn" class="button" data-toggle="modal" data-target="#exampleModal">
+						Delete Account
+					</p>
 					<% elsif current_user && Team.find(current_team_id).name == "TaskDragon" %>
 					<ul>
 						<li><a href="#team" class="active">Team</a></li>
 						<li><a href="#list">Tasks</a></li>
 						<li><a href="#dragon"> Dragon</a></li>
 						<li><a href="#four">Contact</a></li>
-						<a id="myBtn" class="button" data-toggle="modal" data-target="#exampleModal">
-						  Delete Account
-						</a>
 					</ul>
+					<p id="myBtn" class="button" data-toggle="modal" data-target="#exampleModal">
+						Delete Account
+					</p>
 					<% else %>
 					<ul>
 						<li><a href="#one" class="active">About</a></li>
